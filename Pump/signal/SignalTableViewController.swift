@@ -10,6 +10,30 @@ import UIKit
 
 class SignalTableViewController: UITableViewController {
 
+    
+    var signals: [Signal]! = {
+        var signals: [Signal]! = [Signal]()
+        
+        for i in 0...10{
+            let mess = i % 2 == 0 ? """
+            📣COMPRE IMEDIATAMENTE📣
+            Ativo: WDOM19
+            Preço: 4042.0
+            Número do sinal: 101
+            """ : """
+            📣FECHE A OPERAÇÃO IMEDIATAMENTE📣
+            Ativo: WDOM19
+            Preço: 4067
+            Número do sinal: 101
+            """
+            let toAppend = Signal(message: "\(mess)", timestamp: Date())
+            signals.append(toAppend)
+        }
+        
+        return signals
+    }()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,23 +48,32 @@ class SignalTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return self.signals.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
+        let cell = tableView.dequeueReusableCell(withIdentifier: "signalCell", for: indexPath) as! SignalTableViewCell
+        let signal = self.signals[indexPath.item]
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "pt_BR")
+        formatter.setLocalizedDateFormatFromTemplate("dd/MM/yyyy")
+        let date = formatter.string(from: signal.timestamp)
+        formatter.setLocalizedDateFormatFromTemplate("HH:mm")
+        let hour = formatter.string(from: signal.timestamp)
+        cell.mensagem.text = signal.message
+        cell.dateLabel.text = date
+        cell.hourLabel.text = hour
         // Configure the cell...
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.

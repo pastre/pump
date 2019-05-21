@@ -10,22 +10,74 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Signal Table View Controller-->
+        <!--Sinais-->
         <scene sceneID="qgo-d3-1RH">
             <objects>
-                <tableViewController id="Gjs-lr-gtP" customClass="SignalTableViewController" customModule="Pump" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KwZ-jP-249">
+                <tableViewController title="Sinais" id="Gjs-lr-gtP" customClass="SignalTableViewController" customModule="Pump" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="KwZ-jP-249">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.72775699049021125" green="0.83313135340330957" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="signalCell" rowHeight="302" id="Zug-Jn-b24" customClass="SignalTableViewCell" customModule="Pump" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="302"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="signalCell" rowHeight="113" id="Zug-Jn-b24" customClass="SignalTableViewCell" customModule="Pump" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="113"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Zug-Jn-b24" id="RT1-6p-Z2c">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="301.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="113"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohq-jk-tU5" userLabel="box" customClass="ChatBox" customModule="Pump" customModuleProvider="target">
+                                            <rect key="frame" x="10" y="10" width="394" height="93"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="17/06/2019" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L5Y-Jv-867">
+                                                    <rect key="frame" x="330" y="71" width="54" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HXQ-H5-sxy">
+                                                    <rect key="frame" x="10" y="10" width="310" height="73"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="09:13" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D1c-ep-4rS">
+                                                    <rect key="frame" x="330" y="55.5" width="54" height="12"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="D1c-ep-4rS" firstAttribute="centerX" secondItem="L5Y-Jv-867" secondAttribute="centerX" id="Fk0-1u-Ywz"/>
+                                                <constraint firstItem="L5Y-Jv-867" firstAttribute="leading" secondItem="HXQ-H5-sxy" secondAttribute="trailing" constant="10" id="Jhd-dY-i8A"/>
+                                                <constraint firstAttribute="trailing" secondItem="L5Y-Jv-867" secondAttribute="trailing" constant="10" id="K2A-DM-eHT"/>
+                                                <constraint firstAttribute="bottom" secondItem="L5Y-Jv-867" secondAttribute="bottom" constant="10" id="T2Q-OS-cKC"/>
+                                                <constraint firstItem="D1c-ep-4rS" firstAttribute="trailing" secondItem="L5Y-Jv-867" secondAttribute="trailing" id="Y2c-BP-1M1"/>
+                                                <constraint firstAttribute="bottom" secondItem="HXQ-H5-sxy" secondAttribute="bottom" constant="10" id="d3d-O3-UkT"/>
+                                                <constraint firstItem="D1c-ep-4rS" firstAttribute="top" relation="greaterThanOrEqual" secondItem="ohq-jk-tU5" secondAttribute="top" constant="40" id="d5M-I7-F9M"/>
+                                                <constraint firstItem="L5Y-Jv-867" firstAttribute="top" secondItem="D1c-ep-4rS" secondAttribute="bottom" constant="3.5" id="eBl-Zp-Zdb"/>
+                                                <constraint firstItem="HXQ-H5-sxy" firstAttribute="top" secondItem="ohq-jk-tU5" secondAttribute="top" constant="10" id="emH-hc-8AM"/>
+                                                <constraint firstItem="HXQ-H5-sxy" firstAttribute="leading" secondItem="ohq-jk-tU5" secondAttribute="leading" constant="10" id="z0U-vl-Udm"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="ohq-jk-tU5" firstAttribute="top" secondItem="RT1-6p-Z2c" secondAttribute="top" constant="10" id="AJT-BL-B7O"/>
+                                        <constraint firstAttribute="trailing" secondItem="ohq-jk-tU5" secondAttribute="trailing" constant="10" id="Efc-sE-Xb7"/>
+                                        <constraint firstAttribute="bottom" secondItem="ohq-jk-tU5" secondAttribute="bottom" constant="10" id="Kwo-XV-n3v"/>
+                                        <constraint firstItem="ohq-jk-tU5" firstAttribute="leading" secondItem="RT1-6p-Z2c" secondAttribute="leading" constant="10" id="r6U-qv-27e"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="dateLabel" destination="L5Y-Jv-867" id="u0E-2Q-s66"/>
+                                    <outlet property="hourLabel" destination="D1c-ep-4rS" id="SM0-AQ-zWD"/>
+                                    <outlet property="mensagem" destination="HXQ-H5-sxy" id="V4I-9z-XBv"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -36,7 +88,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKa-pF-oWI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1802.8985507246377" y="193.52678571428569"/>
+            <point key="canvasLocation" x="1802.8985507246377" y="196.875"/>
         </scene>
         <!--Registros-->
         <scene sceneID="zl0-qO-fAh">
@@ -93,7 +145,7 @@
             </objects>
             <point key="canvasLocation" x="1803" y="876"/>
         </scene>
-        <!--View Controller-->
+        <!--Pump.-->
         <scene sceneID="7Lf-OT-K90">
             <objects>
                 <viewController id="DB0-OJ-oU5" sceneMemberID="viewController">
@@ -125,7 +177,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Aam-Fq-diN"/>
                     </view>
-                    <navigationItem key="navigationItem" id="zBF-So-M5M"/>
+                    <navigationItem key="navigationItem" title="Pump." id="zBF-So-M5M"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2p8-44-r4w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

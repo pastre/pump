@@ -13,8 +13,10 @@ class Log {
     internal init(name: String?, proft: Float?) {
         self.name = name
         self.proft = proft
+        self.createdAt = Date()
     }
     
+    var createdAt: Date!
     var name: String!
     var proft: Float!
 }
@@ -40,6 +42,7 @@ class Week: Log{
 }
 
 class Day: Log {
+    
     internal init(name: String?, proft: Float?, actions: [String]?) {
         super.init(name: name, proft: proft)
         self.actions = actions
@@ -48,4 +51,15 @@ class Day: Log {
     var actions: [String]!
     
     
+}
+
+
+class Signal{
+    internal init(message: String, timestamp: Date) {
+        self.message = message
+        self.timestamp = timestamp
+    }
+    
+    var message: String!
+    var timestamp: Date!
 }
