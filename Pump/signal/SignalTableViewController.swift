@@ -7,28 +7,32 @@
 //
 
 import UIKit
+import FirebaseDatabase
+
 
 class SignalTableViewController: UITableViewController {
 
-    
+    var ref: DatabaseReference!
     var signals: [Signal]! = {
         var signals: [Signal]! = [Signal]()
         
-        for i in 0...10{
-            let mess = i % 2 == 0 ? """
-            📣COMPRE IMEDIATAMENTE📣
-            Ativo: WDOM19
-            Preço: 4042.0
-            Número do sinal: 101
-            """ : """
-            📣FECHE A OPERAÇÃO IMEDIATAMENTE📣
-            Ativo: WDOM19
-            Preço: 4067
-            Número do sinal: 101
-            """
-            let toAppend = Signal(message: "\(mess)", timestamp: Date())
-            signals.append(toAppend)
-        }
+
+        
+//        for i in 0...10{
+//            let mess = i % 2 == 0 ? """
+//            📣COMPRE IMEDIATAMENTE📣
+//            Ativo: WDOM19
+//            Preço: 4042.0
+//            Número do sinal: 101
+//            """ : """
+//            📣FECHE A OPERAÇÃO IMEDIATAMENTE📣
+//            Ativo: WDOM19
+//            Preço: 4067
+//            Número do sinal: 101
+//            """
+//            let toAppend = Signal(message: "\(mess)", timestamp: Date())
+//            signals.append(toAppend)
+//        }
         
         return signals
     }()
@@ -36,12 +40,29 @@ class SignalTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        ref = Database.database().reference().child("signals")
+        
+        
+        ref.observe(.childAdded, with: { (snap) in
+            self.onAdded(snap: snap)
+            })
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    func onAdded(snap: DataSnapshot){
+//        print(type(of: snap.value), snap.value!)
+        let dict = snap.value! as! NSDictionary
+        
+        let date = Date.init(timeIntervalSince1970: TimeInterval(exactly: dict["timestamp"] as! Double)!)
+        let toAppend = Signal(message: dict["message"] as! String, timestamp: date)
+        
+        self.signals.append(toAppend)
+        self.tableView.reloadData()
+        self.scrollToBottom(animated: false)
     }
 
     // MARK: - Table view data source
@@ -74,7 +95,12 @@ class SignalTableViewController: UITableViewController {
         return cell
     }
     
-
+    func scrollToBottom(animated: Bool){
+        DispatchQueue.main.async {
+            let indexPath = IndexPath(row: self.signals.count-1, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
+        }
+    }
     /*
     // Override to support conditional editing of the table view.
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

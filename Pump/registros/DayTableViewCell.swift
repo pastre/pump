@@ -29,7 +29,7 @@ class DayTableViewCell: ProfitTableViewCell{
         let log = self.log as! Day
         let a1 = log.actions[0], a2 = log.actions[1]
         
-        if a1 == "compra"{
+        if a1 == "compre"{
             self.firstAction.textColor = Constants.PLUS_GREEN
         }else{
             self.firstAction.textColor = Constants.NEGATIVE_RED

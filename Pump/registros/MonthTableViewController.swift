@@ -7,35 +7,45 @@
 //
 
 import UIKit
+import FirebaseDatabase
+
 
 class MonthTableViewController: UITableViewController {
-    let months: [Month]! = {
+    
+    var ref: DatabaseReference!
+    var months: [Month]! = {
         var months: [Month]! = [Month]()
         let names = ["JAN", "FEV", "MAR", "ABR", "MAI", "JUN", "JUL"]
         
-        for (i, name) in names.enumerated(){
-            var weeks: [Week]! = [Week]()
-            var days: [Day]! = [Day]()
-            for day in 1...31{
-                if day == 11 || day == 21 || day == 31{
-                    var newWeek: Week! = Week(name: "\(day - 10) - \(day)", proft: 12.0, days: days)
-                    weeks.append(newWeek)
-                    days = [Day]()
-                }
-                let newDay = Day(name: "\(day)", proft: 2.0, actions: ["compra", "venda"])
-                days.append(newDay)
-                print("Dia", day)
-            }
-            
-            let newMonth = Month(name: name, proft: i % 2 == 0 ? 13.0 : -12.0, weeks: weeks)
-            months.append(newMonth)
-        }
+//        for (i, name) in names.enumerated(){
+//            var weeks: [Week]! = [Week]()
+//            var days: [Day]! = [Day]()
+//            for day in 1...31{
+//                if day == 11 || day == 21 || day == 31{
+//                    var newWeek: Week! = Week(name: "\(day - 10) - \(day)", proft: 12.0, days: days)
+//                    weeks.append(newWeek)
+//                    days = [Day]()
+//                }
+//                let newDay = Day(name: "\(day)", proft: 2.0, actions: ["compra", "venda"])
+//                days.append(newDay)
+//                print("Dia", day)
+//            }
+//
+//            let newMonth = Month(name: name, proft: i % 2 == 0 ? 13.0 : -12.0, weeks: weeks)
+//            months.append(newMonth)
+//        }
         
         return months
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        ref = Database.database().reference().child("months")
+        
+        
+        ref.observe(.childAdded, with: { (snap) in
+            self.onAdded(snap: snap)
+        })
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -43,6 +53,30 @@ class MonthTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
+    
+    func onAdded(snap: DataSnapshot){
+        //        print(type(of: snap.value), snap.value!)
+        let monthDict = snap.value! as! NSDictionary
+        let weeksList = monthDict["weeks"] as!  NSArray
+        var weeks: [Week] = [Week]()
+        for week in weeksList{
+            let weekDict = week as! NSDictionary
+            let daysList = weekDict["days"] as! NSArray
+            var days: [Day] = [Day]()
+            for day in daysList{
+                let dayDict = day as! NSDictionary
+                print("Daydict is", dayDict)
+                let newDay = Day(name: "\(dayDict["name"]!)", proft: (dayDict["profit"] as! Float), actions: (dayDict["messages"] as! [String]))
+                days.append(newDay)
+            }
+            let newWeek = Week(name: (weekDict["name"] as! String), proft: (weekDict["profit"] as! Float), days: days)
+            weeks.append(newWeek)
+        }
+        let month: Month =  Month(name: (monthDict["name"] as! String), proft: (monthDict["profit"] as! Float), weeks: weeks)
+        self.months.append(month)
+        self.tableView.reloadData()
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
