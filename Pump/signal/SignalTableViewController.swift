@@ -56,9 +56,11 @@ class SignalTableViewController: UITableViewController {
     func onAdded(snap: DataSnapshot){
 //        print(type(of: snap.value), snap.value!)
         let dict = snap.value! as! NSDictionary
-        
+        let b64Message = dict["message"] as! String
         let date = Date.init(timeIntervalSince1970: TimeInterval(exactly: dict["timestamp"] as! Double)!)
-        let toAppend = Signal(message: dict["message"] as! String, timestamp: date)
+        let message =  b64Message.fromBase64()!
+        print("Message is", message)
+        let toAppend = Signal(message: message, timestamp: date)
         
         self.signals.append(toAppend)
         self.tableView.reloadData()
@@ -87,6 +89,7 @@ class SignalTableViewController: UITableViewController {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "pt_BR")
         formatter.setLocalizedDateFormatFromTemplate("dd/MM/yyyy")
+        formatter.setLocalizedDateFormatFromTemplate("dd/MM")
         let date = formatter.string(from: signal.timestamp)
         formatter.setLocalizedDateFormatFromTemplate("HH:mm")
         let hour = formatter.string(from: signal.timestamp)
