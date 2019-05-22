@@ -42,10 +42,15 @@ class WeekTableViewController: UITableViewController {
         cell.title.text = week.name
         cell.log = week
         
-        if week.proft >= 0{
-            cell.setPositive()
-        }else{
-            cell.setNegative()
+        if !week.hasProfit{
+            // todo: quando o profit ainda nao fechou
+            
+        }else {
+            if week.profit! >= 0.0 {
+                cell.setPositive()
+            }else{
+                cell.setNegative()
+            }
         }
         
         // Configure the cell...

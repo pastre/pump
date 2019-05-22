@@ -28,13 +28,19 @@ class ProfitTableViewCell: UITableViewCell {
 
     func setPositive(){
         self.profit.textColor = Constants.PLUS_GREEN
-        self.profit.text = "+\(self.log.proft!)%"
+        self.profit.text = "+\(self.log.profit!)%"
     }
     
     func setNegative(){
         self.profit.textColor = Constants.NEGATIVE_RED
-        self.profit.text = "\(self.log.proft!)%"
+        self.profit.text = "\(self.log.profit!)%"
         
+    }
+    
+    func setOpen(){
+        
+        self.profit.textColor = Constants.OPEN_GREY
+        self.profit.text = "..."
     }
     
 }

@@ -80,7 +80,10 @@ class SignalTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "signalCell", for: indexPath) as! SignalTableViewCell
-        let signal = self.signals[indexPath.item]
+        let ordered = signals.sorted { (s1, s2) -> Bool in
+            return s1.timestamp < s2.timestamp
+        }
+        let signal = ordered[indexPath.item]
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "pt_BR")
         formatter.setLocalizedDateFormatFromTemplate("dd/MM/yyyy")

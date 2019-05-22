@@ -10,20 +10,22 @@ import Foundation
 
 
 class Log {
-    internal init(name: String?, proft: Float?) {
+    internal init(name: String?, hasProfit: Bool?, profit: Float) {
         self.name = name
-        self.proft = proft
+        self.hasProfit = hasProfit
+        self.profit = profit
         self.createdAt = Date()
     }
     
     var createdAt: Date!
     var name: String!
-    var proft: Float!
+    var hasProfit: Bool!
+    var profit: Float?
 }
 
 class Month: Log{
-    internal init(name: String?, proft: Float?, weeks: [Week]?) {
-        super.init(name: name, proft: proft)
+    internal init(name: String?, hasProfit: Bool?, profit: Float, weeks: [Week]?) {
+        super.init(name: name, hasProfit: hasProfit, profit: profit)
         self.weeks = weeks
     }
     
@@ -33,8 +35,8 @@ class Month: Log{
 }
 
 class Week: Log{
-    internal init(name: String?, proft: Float?, days: [Day]!) {
-        super.init(name: name, proft: proft)
+    internal init(name: String?, hasProfit: Bool?, profit: Float, days: [Day]!) {
+        super.init(name: name, hasProfit: hasProfit, profit: profit)
         self.days = days
     }
     
@@ -43,8 +45,8 @@ class Week: Log{
 
 class Day: Log {
     
-    internal init(name: String?, proft: Float?, actions: [String]?) {
-        super.init(name: name, proft: proft)
+    internal init(name: String?, hasProfit: Bool?, profit: Float, actions: [String]?) {
+        super.init(name: name, hasProfit: hasProfit, profit: profit)
         self.actions = actions
     }
     

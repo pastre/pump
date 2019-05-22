@@ -66,13 +66,13 @@ class MonthTableViewController: UITableViewController {
             for day in daysList{
                 let dayDict = day as! NSDictionary
                 print("Daydict is", dayDict)
-                let newDay = Day(name: "\(dayDict["name"]!)", proft: (dayDict["profit"] as! Float), actions: (dayDict["messages"] as! [String]))
+                let newDay = Day(name: "\(dayDict["name"]!)", hasProfit: (dayDict["hasProfit"] as! Bool), profit: (dayDict["profit"] as! Float), actions: (dayDict["messages"] as! [String]))
                 days.append(newDay)
             }
-            let newWeek = Week(name: (weekDict["name"] as! String), proft: (weekDict["profit"] as! Float), days: days)
+            let newWeek = Week(name: (weekDict["name"] as! String),hasProfit: (weekDict["hasProfit"] as! Bool), profit: (weekDict["profit"] as! Float), days: days)
             weeks.append(newWeek)
         }
-        let month: Month =  Month(name: (monthDict["name"] as! String), proft: (monthDict["profit"] as! Float), weeks: weeks)
+        let month: Month =  Month(name: (monthDict["name"] as! String),hasProfit: (monthDict["hasProfit"] as! Bool), profit: (monthDict["profit"] as! Float), weeks: weeks)
         self.months.append(month)
         self.tableView.reloadData()
     }
@@ -96,12 +96,16 @@ class MonthTableViewController: UITableViewController {
         let month = self.months[indexPath.item]
         cell.title.text = month.name
         cell.log = month
-        if month.proft >= 0{
-            cell.setPositive()
+        if !month.hasProfit{
+            // todo
         }else{
-            cell.setNegative()
+            if month.profit! >= 0{
+                cell.setPositive()
+            }else{
+                cell.setNegative()
+            }
+            
         }
-        
         
         // Configure the cell...
 

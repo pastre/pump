@@ -41,10 +41,16 @@ class DayTableViewController: UITableViewController {
         
         cell.title.text = day.name
         cell.log = day
-        if day.proft > 0{
-            cell.setPositive()
+        
+        if !day.hasProfit{
+            // todo
         }else{
-            cell.setNegative()
+            
+            if day.profit! > 0.0 {
+                cell.setPositive()
+            }else{
+                cell.setNegative()
+            }
         }
         
         cell.setupCalls()

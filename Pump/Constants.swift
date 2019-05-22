@@ -12,6 +12,7 @@ import UIKit
 class Constants{
     static let PLUS_GREEN: UIColor = #colorLiteral(red: 0, green: 0.6969159245, blue: 0.1019514129, alpha: 1)
     static let NEGATIVE_RED: UIColor = #colorLiteral(red: 1, green: 0.3098039216, blue: 0.2666666667, alpha: 1)
+    static let OPEN_GREY: UIColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     static let MONTH_ACR : [String : String] = [
         "JAN": "Janeiro",
         "FEV": "Fevereiro",

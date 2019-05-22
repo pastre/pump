@@ -145,6 +145,115 @@
             </objects>
             <point key="canvasLocation" x="1803" y="876"/>
         </scene>
+        <!--Admin-->
+        <scene sceneID="72H-UZ-UiN">
+            <objects>
+                <viewController title="Admin" id="DXm-TE-jVf" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YY3-9E-NH1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jPm-t2-5SZ">
+                                <rect key="frame" x="185" y="256" width="45" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="meses"/>
+                                <connections>
+                                    <segue destination="dgg-VA-ycB" kind="show" id="Tnr-OO-MeA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FzY-gK-iGW">
+                                <rect key="frame" x="179" y="351" width="57" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="senanas"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="15s-lq-34e">
+                                <rect key="frame" x="188" y="483" width="39" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="sinais"/>
+                                <connections>
+                                    <segue destination="4eE-Ek-97k" kind="show" id="nTP-At-Gd0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="ZzD-bw-szX"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lNb-X0-tE4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1803" y="1586"/>
+        </scene>
+        <!--Sinais-->
+        <scene sceneID="FOC-dT-MJx">
+            <objects>
+                <viewController title="Sinais" id="4eE-Ek-97k" customClass="SignalViewController" customModule="Pump" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zEx-G8-UEC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Mensagem do sinal" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OWD-PI-2SQ">
+                                <rect key="frame" x="41.5" y="385.5" width="331" height="179"/>
+                                <color key="backgroundColor" red="0.87561468908629436" green="0.87561468908629436" blue="0.87561468908629436" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asx-Tv-Br7">
+                                <rect key="frame" x="186" y="604.5" width="42" height="197.5"/>
+                                <state key="normal" title="Enviar"/>
+                                <connections>
+                                    <action selector="onSend:" destination="4eE-Ek-97k" eventType="touchUpInside" id="3OW-yH-UXR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="OWD-PI-2SQ" firstAttribute="width" secondItem="zEx-G8-UEC" secondAttribute="width" multiplier="0.8" id="6De-3b-YnW"/>
+                            <constraint firstItem="OWD-PI-2SQ" firstAttribute="centerY" secondItem="zXC-2H-aai" secondAttribute="centerY" id="H5m-fm-KuD"/>
+                            <constraint firstItem="asx-Tv-Br7" firstAttribute="centerX" secondItem="OWD-PI-2SQ" secondAttribute="centerX" id="KXO-NM-eSh"/>
+                            <constraint firstItem="zXC-2H-aai" firstAttribute="bottom" secondItem="asx-Tv-Br7" secondAttribute="bottom" constant="60" id="TDx-xh-JXd"/>
+                            <constraint firstItem="OWD-PI-2SQ" firstAttribute="centerX" secondItem="zXC-2H-aai" secondAttribute="centerX" id="cR1-lh-keF"/>
+                            <constraint firstItem="asx-Tv-Br7" firstAttribute="top" secondItem="OWD-PI-2SQ" secondAttribute="bottom" constant="40" id="kBP-q9-ozx"/>
+                            <constraint firstItem="OWD-PI-2SQ" firstAttribute="height" secondItem="zEx-G8-UEC" secondAttribute="height" multiplier="0.2" id="wak-9I-Pus"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="zXC-2H-aai"/>
+                    </view>
+                    <connections>
+                        <outlet property="messageTextField" destination="OWD-PI-2SQ" id="ChW-QN-z9c"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="w9T-gE-tKV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1802.8985507246377" y="2301.5625"/>
+        </scene>
+        <!--Meses-->
+        <scene sceneID="q0g-dA-B22">
+            <objects>
+                <tableViewController title="Meses" id="dgg-VA-ycB" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jgw-Qd-GuR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="93" id="09J-UU-yjh">
+                                <rect key="frame" x="0.0" y="28" width="414" height="93"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="09J-UU-yjh" id="y7j-aY-oZD">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="92.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dgg-VA-ycB" id="aOe-Ge-bjj"/>
+                            <outlet property="delegate" destination="dgg-VA-ycB" id="1eX-Wu-2CU"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SsB-HR-4hw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2585.507246376812" y="1585.7142857142856"/>
+        </scene>
         <!--Pump.-->
         <scene sceneID="7Lf-OT-K90">
             <objects>
@@ -167,13 +276,22 @@
                                     <segue destination="Gjs-lr-gtP" kind="show" id="4xh-Ow-UA9"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dxb-ba-ePg">
+                                <rect key="frame" x="185" y="483" width="44" height="30"/>
+                                <state key="normal" title="Admin"/>
+                                <connections>
+                                    <segue destination="DXm-TE-jVf" kind="show" id="9Uy-UV-7QM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RvO-D3-C8H" firstAttribute="top" secondItem="cjy-FF-QBm" secondAttribute="bottom" constant="31" id="MAM-Sf-C48"/>
+                            <constraint firstItem="Dxb-ba-ePg" firstAttribute="top" secondItem="RvO-D3-C8H" secondAttribute="bottom" constant="20" id="QXO-yh-1ZX"/>
                             <constraint firstItem="RvO-D3-C8H" firstAttribute="centerY" secondItem="4Gs-IA-a3s" secondAttribute="centerY" id="hwe-3G-S9G"/>
                             <constraint firstItem="cjy-FF-QBm" firstAttribute="centerX" secondItem="RvO-D3-C8H" secondAttribute="centerX" id="v0o-up-Kwx"/>
                             <constraint firstItem="RvO-D3-C8H" firstAttribute="centerX" secondItem="4Gs-IA-a3s" secondAttribute="centerX" id="v7k-jc-BMH"/>
+                            <constraint firstItem="Dxb-ba-ePg" firstAttribute="centerX" secondItem="RvO-D3-C8H" secondAttribute="centerX" id="vuh-K5-kR7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Aam-Fq-diN"/>
                     </view>
