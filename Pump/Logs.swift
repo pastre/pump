@@ -31,7 +31,6 @@ class Month: Log{
     
     
     var weeks: [Week]!
-    
 }
 
 class Week: Log{

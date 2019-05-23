@@ -13,6 +13,7 @@ class ProfitTableViewCell: UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var profit: UILabel!
     
+    var data: ChildRef?
     var log: Log!
     
     override func awakeFromNib() {
