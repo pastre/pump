@@ -15,9 +15,12 @@ class AddWeekTableViewCell: UITableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var monthTextView: UITextField!
     @IBOutlet weak var profitTextView: UITextField!
+    @IBOutlet weak var doneButton: UIButton!
+    
     
     var path: String!
-
+    var data: ChildRef!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.monthTextView.delegate = self
@@ -30,8 +33,18 @@ class AddWeekTableViewCell: UITableViewCell, UITextFieldDelegate {
         
         // Configure the view for the selected state
     }
+    func setAdd(){
+        self.doneButton.setImage(UIImage(named: "add"), for: .normal)
+        self.doneButton.addTarget(self, action: #selector(self.onAdd(_:)), for: .touchDown)
+    }
     
-    @IBAction func onAdd(_ sender: Any) {
+    
+    func setEdit(){
+        self.doneButton.setImage(UIImage(named: "check"), for: .normal)
+        self.doneButton.addTarget(self, action: #selector(self.onEdit(_:)), for: .touchDown)
+    }
+
+    @objc func onAdd(_ sender: Any) {
         guard let name = self.monthTextView.text else { return }
         let profit = self.profitTextView.hasText ? self.profitTextView.text : "..."
         
@@ -44,6 +57,15 @@ class AddWeekTableViewCell: UITableViewCell, UITextFieldDelegate {
             "profit" : profit
             ])
         
+    }
+    
+    @objc func onEdit(_ sender: Any){
+        
+        let ref = Database.database().reference().child(path)
+        guard let name = self.monthTextView.text else {  return }
+        let profit = self.profitTextView.text ?? "..."
+        
+        ref.setValue(["name":  name, "profit" : profit])
     }
 
 }

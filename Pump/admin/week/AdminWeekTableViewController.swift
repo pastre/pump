@@ -23,12 +23,18 @@ class AdminWeekTableViewController: FirebaseTableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
 
     override func generateData(with snap: DataSnapshot) -> BaseFirebaseRef {
         print("Generated based on", snap)
         let month = ChildRef(fromDict: snap.value!, key: snap.key, childKey: "daysRef")
         
         return month
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.item == 0 { return }
+        self.performSegue(withIdentifier: "showDay", sender: self.tableView.cellForRow(at: indexPath))
     }
     // MARK: - Table view data source
 
@@ -41,16 +47,34 @@ class AdminWeekTableViewController: FirebaseTableViewController {
         if indexPath.item == 0{
             let cell = tableView.dequeueReusableCell(withIdentifier: "addWeek", for: indexPath) as! AddWeekTableViewCell
             cell.path = "months/\(self.month.key!)/weeks"
+            cell.setAdd()
 //            cell.path = "/weeks/\(self.month)"
             return cell
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "adminWeekCell", for: indexPath) as! ProfitTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "addWeek", for: indexPath) as! AddWeekTableViewCell
         let data = self.dataToDisplay[indexPath.item - 1]
         
-        cell.title.text = data.name
-        cell.profit.text = data.profit
+        cell.accessoryType = .disclosureIndicator
+        cell.monthTextView.text = data.name
+        cell.profitTextView.text = data.profit
+        
+        cell.path = "months/\(self.month.key!)/weeks/\(data.key!)"
+        cell.data = (data as! ChildRef)
+        cell.setEdit()
+        
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        // Get the new view controller using segue.destination.
+        // Pass the selected object to the new view controller.
+        
+        let dest = segue.destination as! AdminDayTableViewController
+        let cell = sender as! AddWeekTableViewCell
+        
+        dest.month = self.month
+        dest.week = cell.data
     }
     
 }

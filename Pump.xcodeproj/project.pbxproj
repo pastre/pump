@@ -34,6 +34,8 @@
 		D78275532296340D009862BF /* FirebaseRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78275522296340D009862BF /* FirebaseRef.swift */; };
 		D782755622963CA1009862BF /* AdminWeekTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782755522963CA1009862BF /* AdminWeekTableViewController.swift */; };
 		D7827558229641FD009862BF /* AddWeekTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7827557229641FD009862BF /* AddWeekTableViewCell.swift */; };
+		D782755A22970A7C009862BF /* AdminDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782755922970A7C009862BF /* AdminDayTableViewController.swift */; };
+		D782755D22970F9B009862BF /* AddDAYTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782755C22970F9B009862BF /* AddDAYTableViewCell.swift */; };
 		D79434732294AFB2008687E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D79434722294AFB2008687E5 /* GoogleService-Info.plist */; };
 		D7EC6C3322949F6600C597C2 /* ChatBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EC6C3222949F6600C597C2 /* ChatBox.swift */; };
 /* End PBXBuildFile section */
@@ -92,6 +94,8 @@
 		D78275522296340D009862BF /* FirebaseRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRef.swift; sourceTree = "<group>"; };
 		D782755522963CA1009862BF /* AdminWeekTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminWeekTableViewController.swift; sourceTree = "<group>"; };
 		D7827557229641FD009862BF /* AddWeekTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeekTableViewCell.swift; sourceTree = "<group>"; };
+		D782755922970A7C009862BF /* AdminDayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDayTableViewController.swift; sourceTree = "<group>"; };
+		D782755C22970F9B009862BF /* AddDAYTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDAYTableViewCell.swift; sourceTree = "<group>"; };
 		D79434722294AFB2008687E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D7EC6C3222949F6600C597C2 /* ChatBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBox.swift; sourceTree = "<group>"; };
 		DDFDC1779746A48B27FED1B2 /* Pods-PumpUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PumpUITests.release.xcconfig"; path = "Target Support Files/Pods-PumpUITests/Pods-PumpUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -237,6 +241,7 @@
 			children = (
 				D782755022963347009862BF /* FirebaseTableViewController.swift */,
 				D78275522296340D009862BF /* FirebaseRef.swift */,
+				D782755B22970A80009862BF /* day */,
 				D782755422963C2E009862BF /* week */,
 				D782754922962EF2009862BF /* month */,
 				D738B34B2295B01D007B4C05 /* SignalViewController.swift */,
@@ -260,6 +265,15 @@
 				D7827557229641FD009862BF /* AddWeekTableViewCell.swift */,
 			);
 			path = week;
+			sourceTree = "<group>";
+		};
+		D782755B22970A80009862BF /* day */ = {
+			isa = PBXGroup;
+			children = (
+				D782755922970A7C009862BF /* AdminDayTableViewController.swift */,
+				D782755C22970F9B009862BF /* AddDAYTableViewCell.swift */,
+			);
+			path = day;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -507,6 +521,8 @@
 				D782754F22962FA3009862BF /* AddMonthTableViewCell.swift in Sources */,
 				D7050473229472660099BE02 /* SignalTableViewCell.swift in Sources */,
 				D705046422943A1A0099BE02 /* WeekTableViewController.swift in Sources */,
+				D782755D22970F9B009862BF /* AddDAYTableViewCell.swift in Sources */,
+				D782755A22970A7C009862BF /* AdminDayTableViewController.swift in Sources */,
 				D738B34C2295B01D007B4C05 /* SignalViewController.swift in Sources */,
 				D782755122963347009862BF /* FirebaseTableViewController.swift in Sources */,
 				D78275482295D17A009862BF /* SegViewController.swift in Sources */,
