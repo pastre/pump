@@ -11,7 +11,7 @@ import UIKit
 class FirebaseTableViewCell: UITableViewCell {
 
     var path: String!
-    var data: ChildRef!
+    var data: BaseFirebaseRef!
     
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -10,11 +10,11 @@ import UIKit
 import FirebaseDatabase
 class AdminWeekTableViewController: FirebaseTableViewController {
 
-    var month: ChildRef!
+    var month: BaseFirebaseRef!
     
     
     override func viewDidLoad() {
-        self.segueId = "showDay"
+        self.segueId = "adminShowDay"
         self.ref = Database.database().reference().child("/months/\(month.key!)/weeks")
         super.viewDidLoad()
 //        self.addCellId = "addMonth"
@@ -29,7 +29,7 @@ class AdminWeekTableViewController: FirebaseTableViewController {
 
     override func generateData(with snap: DataSnapshot) -> BaseFirebaseRef {
         print("Generated based on", snap)
-        let month = ChildRef(fromDict: snap.value!, key: snap.key, childKey: "daysRef")
+        let month = BaseFirebaseRef(fromDict: snap.value!, key: snap.key)
         
         return month
     }
@@ -59,7 +59,7 @@ class AdminWeekTableViewController: FirebaseTableViewController {
         cell.profitTextView.text = data.profit
         
         cell.path = "months/\(self.month.key!)/weeks/\(data.key!)"
-        cell.data = (data as! ChildRef)
+        cell.data = (data as! BaseFirebaseRef)
         cell.setEdit()
         
         return cell

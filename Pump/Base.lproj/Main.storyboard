@@ -141,7 +141,7 @@
                                 <connections>
                                     <outlet property="profit" destination="Yr0-24-kPN" id="iNT-HU-E0z"/>
                                     <outlet property="title" destination="NTt-qk-Jf6" id="KTM-GY-Evw"/>
-                                    <segue destination="k5p-jG-BMt" kind="show" id="949-QY-ifz"/>
+                                    <segue destination="k5p-jG-BMt" kind="show" identifier="showWeek" id="949-QY-ifz"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -290,7 +290,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="JnV-H9-c3m" kind="show" identifier="showWeek" id="SzZ-x8-m2w"/>
+                        <segue destination="JnV-H9-c3m" kind="show" identifier="adminShowWeek" id="SzZ-x8-m2w"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SsB-HR-4hw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -356,7 +356,7 @@
                         </connections>
                     </tableView>
                     <connections>
-                        <segue destination="8F6-eQ-bZf" kind="show" identifier="showDay" id="ykD-Ph-g7a"/>
+                        <segue destination="8F6-eQ-bZf" kind="show" identifier="adminShowDay" id="ykD-Ph-g7a"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3cQ-Wd-7mO" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,8 +12,8 @@ import FirebaseDatabase
 
 class AdminDayTableViewController: FirebaseTableViewController {
 
-    var month: ChildRef!
-    var week: ChildRef!
+    var month: BaseFirebaseRef!
+    var week: BaseFirebaseRef!
     
     override func viewDidLoad() {
         self.ref = Database.database().reference().child("/months/\(month.key!)/weeks/\(week.key!)/days")

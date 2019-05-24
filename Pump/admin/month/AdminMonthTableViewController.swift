@@ -12,7 +12,7 @@ import FirebaseDatabase
 class AdminMonthTableViewController: FirebaseTableViewController {
 
     override func viewDidLoad() {
-        self.segueId = "showWeek"
+        self.segueId = "adminShowWeek"
         self.ref = Database.database().reference().child("/months")
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
@@ -23,7 +23,7 @@ class AdminMonthTableViewController: FirebaseTableViewController {
     }
     
     override func generateData(with snap: DataSnapshot) -> BaseFirebaseRef {
-        let month = ChildRef(fromDict: snap.value!, key: snap.key, childKey: "weeksRef")
+        let month = BaseFirebaseRef(fromDict: snap.value!, key: snap.key)
         
         return month
     }
@@ -49,7 +49,7 @@ class AdminMonthTableViewController: FirebaseTableViewController {
         
         cell.monthTextView.text = data.name
         cell.profitTextView.text = data.profit
-        cell.data = (data as! ChildRef)
+        cell.data = (data as! BaseFirebaseRef)
         cell.path = "/months/\(data.key!)"
         cell.accessoryType = .disclosureIndicator
         cell.setEdit()
@@ -58,40 +58,6 @@ class AdminMonthTableViewController: FirebaseTableViewController {
     }
     
 
-    /*
-     // Override to support conditional editing of the table view.
-     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the specified item to be editable.
-     return true
-     }
-     */
-    
-    /*
-     // Override to support editing the table view.
-     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-     if editingStyle == .delete {
-     // Delete the row from the data source
-     tableView.deleteRows(at: [indexPath], with: .fade)
-     } else if editingStyle == .insert {
-     // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-     }
-     }
-     */
-    
-    /*
-     // Override to support rearranging the table view.
-     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-     
-     }
-     */
-    
-    /*
-     // Override to support conditional rearranging of the table view.
-     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-     // Return false if you do not want the item to be re-orderable.
-     return true
-     }
-     */
     
     
     // MARK: - Navigation

@@ -15,6 +15,7 @@ class BaseFirebaseRef{
     var key: String!
     
     init(fromDict: Any, key: String) {
+        print("Parsing",key, fromDict)
         let asDict = fromDict as! NSDictionary
         self.name = (asDict["name"] as! String)
         self.profit = (asDict["profit"] as! String)
@@ -23,16 +24,16 @@ class BaseFirebaseRef{
     
     
 }
-class ChildRef: BaseFirebaseRef{
-    var childRef: String?
-    
-    init(fromDict: Any, key: String,  childKey: String) {
-        super.init(fromDict: fromDict, key: key)
-        let asDict = fromDict as! NSDictionary
-        self.childRef = (asDict[childKey] as? String)
-    }
-    
-}
+//class ChildRef: BaseFirebaseRef{
+//    var childRef: String?
+//    
+//    init(fromDict: Any, key: String,  childKey: String) {
+//        super.init(fromDict: fromDict, key: key)
+//        let asDict = fromDict as! NSDictionary
+//        self.childRef = (asDict[childKey] as? String)
+//    }
+//    
+//}
 
 
 class DayRef: BaseFirebaseRef{
