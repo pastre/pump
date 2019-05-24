@@ -12,7 +12,9 @@ class AdminWeekTableViewController: FirebaseTableViewController {
 
     var month: ChildRef!
     
+    
     override func viewDidLoad() {
+        self.segueId = "showDay"
         self.ref = Database.database().reference().child("/months/\(month.key!)/weeks")
         super.viewDidLoad()
 //        self.addCellId = "addMonth"
@@ -32,10 +34,7 @@ class AdminWeekTableViewController: FirebaseTableViewController {
         return month
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.item == 0 { return }
-        self.performSegue(withIdentifier: "showDay", sender: self.tableView.cellForRow(at: indexPath))
-    }
+
     // MARK: - Table view data source
 
     

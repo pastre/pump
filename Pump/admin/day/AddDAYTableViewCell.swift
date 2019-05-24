@@ -9,9 +9,8 @@
 import UIKit
 import FirebaseDatabase
 
-class AddDAYTableViewCell: UITableViewCell {
+class AddDAYTableViewCell: FirebaseTableViewCell {
 
-    var path: String!
     
     @IBOutlet weak var dayTextField: UITextField!
     @IBOutlet weak var profitTextField: UITextField!

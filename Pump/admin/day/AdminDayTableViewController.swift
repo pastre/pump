@@ -17,6 +17,7 @@ class AdminDayTableViewController: FirebaseTableViewController {
     
     override func viewDidLoad() {
         self.ref = Database.database().reference().child("/months/\(month.key!)/weeks/\(week.key!)/days")
+        self.segueId = super.noSegue
         super.viewDidLoad()
     }
     
@@ -26,6 +27,7 @@ class AdminDayTableViewController: FirebaseTableViewController {
         
         return month
     }
+    
     // MARK: - Table view data source
     
     

@@ -11,15 +11,13 @@ import UIKit
 import FirebaseDatabase
 
 
-class AddWeekTableViewCell: UITableViewCell, UITextFieldDelegate {
+class AddWeekTableViewCell: FirebaseTableViewCell, UITextFieldDelegate {
     
     @IBOutlet weak var monthTextView: UITextField!
     @IBOutlet weak var profitTextView: UITextField!
     @IBOutlet weak var doneButton: UIButton!
     
     
-    var path: String!
-    var data: ChildRef!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -51,7 +49,7 @@ class AddWeekTableViewCell: UITableViewCell, UITextFieldDelegate {
         
         let ref = Database.database().reference().child(self.path)
         
-        print("Adding to", self.path)
+        print("Adding to", self.path!)
         ref.childByAutoId().setValue([
             "name": name,
             "profit" : profit

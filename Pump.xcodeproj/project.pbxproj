@@ -27,6 +27,7 @@
 		D7050471229472580099BE02 /* SignalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050470229472580099BE02 /* SignalTableViewController.swift */; };
 		D7050473229472660099BE02 /* SignalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050472229472660099BE02 /* SignalTableViewCell.swift */; };
 		D738B34C2295B01D007B4C05 /* SignalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D738B34B2295B01D007B4C05 /* SignalViewController.swift */; };
+		D75AF5D72298347E000E7C9B /* FirebaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AF5D62298347E000E7C9B /* FirebaseTableViewCell.swift */; };
 		D78275482295D17A009862BF /* SegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78275472295D17A009862BF /* SegViewController.swift */; };
 		D782754D22962F20009862BF /* AdminMonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782754C22962F20009862BF /* AdminMonthTableViewController.swift */; };
 		D782754F22962FA3009862BF /* AddMonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782754E22962FA3009862BF /* AddMonthTableViewCell.swift */; };
@@ -87,6 +88,7 @@
 		D7050470229472580099BE02 /* SignalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTableViewController.swift; sourceTree = "<group>"; };
 		D7050472229472660099BE02 /* SignalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTableViewCell.swift; sourceTree = "<group>"; };
 		D738B34B2295B01D007B4C05 /* SignalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalViewController.swift; sourceTree = "<group>"; };
+		D75AF5D62298347E000E7C9B /* FirebaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTableViewCell.swift; sourceTree = "<group>"; };
 		D78275472295D17A009862BF /* SegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegViewController.swift; sourceTree = "<group>"; };
 		D782754C22962F20009862BF /* AdminMonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMonthTableViewController.swift; sourceTree = "<group>"; };
 		D782754E22962FA3009862BF /* AddMonthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonthTableViewCell.swift; sourceTree = "<group>"; };
@@ -239,6 +241,7 @@
 		D738B34A2295B008007B4C05 /* admin */ = {
 			isa = PBXGroup;
 			children = (
+				D75AF5D62298347E000E7C9B /* FirebaseTableViewCell.swift */,
 				D782755022963347009862BF /* FirebaseTableViewController.swift */,
 				D78275522296340D009862BF /* FirebaseRef.swift */,
 				D782755B22970A80009862BF /* day */,
@@ -510,6 +513,7 @@
 				D78275532296340D009862BF /* FirebaseRef.swift in Sources */,
 				D7050436229385E20099BE02 /* ViewController.swift in Sources */,
 				D782754D22962F20009862BF /* AdminMonthTableViewController.swift in Sources */,
+				D75AF5D72298347E000E7C9B /* FirebaseTableViewCell.swift in Sources */,
 				D705046E22944D5D0099BE02 /* DayTableViewCell.swift in Sources */,
 				D705046822943AB00099BE02 /* ProfitTableViewCell.swift in Sources */,
 				D7827558229641FD009862BF /* AddWeekTableViewCell.swift in Sources */,

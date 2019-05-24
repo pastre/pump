@@ -12,7 +12,7 @@ import FirebaseDatabase
 class AdminMonthTableViewController: FirebaseTableViewController {
 
     override func viewDidLoad() {
-        
+        self.segueId = "showWeek"
         self.ref = Database.database().reference().child("/months")
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
@@ -23,7 +23,6 @@ class AdminMonthTableViewController: FirebaseTableViewController {
     }
     
     override func generateData(with snap: DataSnapshot) -> BaseFirebaseRef {
-        print("Generated based on", snap)
         let month = ChildRef(fromDict: snap.value!, key: snap.key, childKey: "weeksRef")
         
         return month
@@ -39,24 +38,26 @@ class AdminMonthTableViewController: FirebaseTableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "addMonth", for: indexPath) as! AddMonthTableViewCell
         if indexPath.item == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "addMonth", for: indexPath) as! AddMonthTableViewCell
-            
+            cell.setAdd()
             cell.path = "/months"
             return cell
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "adminMonthCell", for: indexPath) as! ProfitTableViewCell
         let data = self.dataToDisplay[indexPath.item - 1]
         
-        cell.title.text = data.name
-        cell.profit.text = data.profit
+        cell.monthTextView.text = data.name
+        cell.profitTextView.text = data.profit
         cell.data = (data as! ChildRef)
+        cell.path = "/months/\(data.key!)"
+        cell.accessoryType = .disclosureIndicator
+        cell.setEdit()
         
         return cell
     }
     
-    
+
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
@@ -101,7 +102,7 @@ class AdminMonthTableViewController: FirebaseTableViewController {
         // Pass the selected object to the new view controller.
         
         let dest = segue.destination as! AdminWeekTableViewController
-        let cell = sender as! ProfitTableViewCell
+        let cell = sender as! AddMonthTableViewCell
         
         dest.month = cell.data
     }
