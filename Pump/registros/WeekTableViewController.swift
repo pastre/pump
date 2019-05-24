@@ -15,7 +15,7 @@ class WeekTableViewController: FirebaseTableViewController{
     var month: BaseFirebaseRef!
 
     override func viewDidLoad() {
-        self.segueId = "showDay"
+        self.segueId = super.noSegue
         self.ref = Database.database().reference().child("/months/\(month.key!)/weeks")
         super.viewDidLoad()
     }
@@ -27,7 +27,7 @@ class WeekTableViewController: FirebaseTableViewController{
         
         cell.title.text = data.name
         cell.profit.text = data.profit ?? "..."
-        cell.data = (data as! BaseFirebaseRef)
+        cell.data = (data)
         cell.path = "/months/\(data.key!)"
         //        cell.accessoryType = .disclosureIndicator
         //        cell.setEdit()
@@ -38,6 +38,9 @@ class WeekTableViewController: FirebaseTableViewController{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let cell = sender as! ProfitTableViewCell
         let dest = segue.destination as! DayTableViewController
+        
+        dest.navigationItem.prompt = self.navigationItem.title
+        dest.navigationItem.title = cell.data!.name
         
         dest.month = self.month
         dest.week = cell.data

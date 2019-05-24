@@ -17,13 +17,8 @@
 		D705043E229385E30099BE02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D705043C229385E30099BE02 /* LaunchScreen.storyboard */; };
 		D7050449229385E30099BE02 /* PumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050448229385E30099BE02 /* PumpTests.swift */; };
 		D7050454229385E30099BE02 /* PumpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050453229385E30099BE02 /* PumpUITests.swift */; };
-		D705046222943A0F0099BE02 /* MonthTableViewControllerBak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705046122943A0F0099BE02 /* MonthTableViewControllerBak.swift */; };
-		D705046422943A1A0099BE02 /* WeekTableViewControllerBak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705046322943A1A0099BE02 /* WeekTableViewControllerBak.swift */; };
-		D705046622943A2E0099BE02 /* DayTableViewControllerBak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705046522943A2E0099BE02 /* DayTableViewControllerBak.swift */; };
-		D705046822943AB00099BE02 /* ProfitTableViewCellBak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705046722943AB00099BE02 /* ProfitTableViewCellBak.swift */; };
 		D705046A22943E3C0099BE02 /* Logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705046922943E3C0099BE02 /* Logs.swift */; };
 		D705046C229449E90099BE02 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705046B229449E90099BE02 /* Constants.swift */; };
-		D705046E22944D5D0099BE02 /* DayTableViewCellBak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705046D22944D5D0099BE02 /* DayTableViewCellBak.swift */; };
 		D7050471229472580099BE02 /* SignalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050470229472580099BE02 /* SignalTableViewController.swift */; };
 		D7050473229472660099BE02 /* SignalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050472229472660099BE02 /* SignalTableViewCell.swift */; };
 		D738B34C2295B01D007B4C05 /* SignalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D738B34B2295B01D007B4C05 /* SignalViewController.swift */; };
@@ -32,6 +27,7 @@
 		D75AF5DF229838C1000E7C9B /* ProfitTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AF5DE229838C1000E7C9B /* ProfitTableViewCell.swift */; };
 		D75AF5E1229839B6000E7C9B /* WeekTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AF5E0229839B6000E7C9B /* WeekTableViewController.swift */; };
 		D75AF5E322983C75000E7C9B /* DayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AF5E222983C75000E7C9B /* DayTableViewController.swift */; };
+		D75AF5E622984115000E7C9B /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AF5E422984115000E7C9B /* DayTableViewCell.swift */; };
 		D78275482295D17A009862BF /* SegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78275472295D17A009862BF /* SegViewController.swift */; };
 		D782754D22962F20009862BF /* AdminMonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782754C22962F20009862BF /* AdminMonthTableViewController.swift */; };
 		D782754F22962FA3009862BF /* AddMonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782754E22962FA3009862BF /* AddMonthTableViewCell.swift */; };
@@ -82,13 +78,8 @@
 		D705044F229385E30099BE02 /* PumpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PumpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7050453229385E30099BE02 /* PumpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PumpUITests.swift; sourceTree = "<group>"; };
 		D7050455229385E30099BE02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D705046122943A0F0099BE02 /* MonthTableViewControllerBak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTableViewControllerBak.swift; sourceTree = "<group>"; };
-		D705046322943A1A0099BE02 /* WeekTableViewControllerBak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeekTableViewControllerBak.swift; path = ../WeekTableViewControllerBak.swift; sourceTree = "<group>"; };
-		D705046522943A2E0099BE02 /* DayTableViewControllerBak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTableViewControllerBak.swift; sourceTree = "<group>"; };
-		D705046722943AB00099BE02 /* ProfitTableViewCellBak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitTableViewCellBak.swift; sourceTree = "<group>"; };
 		D705046922943E3C0099BE02 /* Logs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logs.swift; sourceTree = "<group>"; };
 		D705046B229449E90099BE02 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		D705046D22944D5D0099BE02 /* DayTableViewCellBak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTableViewCellBak.swift; sourceTree = "<group>"; };
 		D7050470229472580099BE02 /* SignalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTableViewController.swift; sourceTree = "<group>"; };
 		D7050472229472660099BE02 /* SignalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTableViewCell.swift; sourceTree = "<group>"; };
 		D738B34B2295B01D007B4C05 /* SignalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalViewController.swift; sourceTree = "<group>"; };
@@ -97,6 +88,7 @@
 		D75AF5DE229838C1000E7C9B /* ProfitTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitTableViewCell.swift; sourceTree = "<group>"; };
 		D75AF5E0229839B6000E7C9B /* WeekTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekTableViewController.swift; sourceTree = "<group>"; };
 		D75AF5E222983C75000E7C9B /* DayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTableViewController.swift; sourceTree = "<group>"; };
+		D75AF5E422984115000E7C9B /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
 		D78275472295D17A009862BF /* SegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegViewController.swift; sourceTree = "<group>"; };
 		D782754C22962F20009862BF /* AdminMonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMonthTableViewController.swift; sourceTree = "<group>"; };
 		D782754E22962FA3009862BF /* AddMonthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonthTableViewCell.swift; sourceTree = "<group>"; };
@@ -228,11 +220,11 @@
 		D705046F229472150099BE02 /* registros */ = {
 			isa = PBXGroup;
 			children = (
+				D75AF5E422984115000E7C9B /* DayTableViewCell.swift */,
 				D75AF5DE229838C1000E7C9B /* ProfitTableViewCell.swift */,
 				D75AF5DA229836C7000E7C9B /* MonthTableViewController.swift */,
 				D75AF5E0229839B6000E7C9B /* WeekTableViewController.swift */,
 				D75AF5E222983C75000E7C9B /* DayTableViewController.swift */,
-				D75AF5D822983676000E7C9B /* bak */,
 			);
 			path = registros;
 			sourceTree = "<group>";
@@ -258,18 +250,6 @@
 				D738B34B2295B01D007B4C05 /* SignalViewController.swift */,
 			);
 			path = admin;
-			sourceTree = "<group>";
-		};
-		D75AF5D822983676000E7C9B /* bak */ = {
-			isa = PBXGroup;
-			children = (
-				D705046122943A0F0099BE02 /* MonthTableViewControllerBak.swift */,
-				D705046322943A1A0099BE02 /* WeekTableViewControllerBak.swift */,
-				D705046522943A2E0099BE02 /* DayTableViewControllerBak.swift */,
-				D705046722943AB00099BE02 /* ProfitTableViewCellBak.swift */,
-				D705046D22944D5D0099BE02 /* DayTableViewCellBak.swift */,
-			);
-			path = bak;
 			sourceTree = "<group>";
 		};
 		D782754922962EF2009862BF /* month */ = {
@@ -534,18 +514,15 @@
 				D7050436229385E20099BE02 /* ViewController.swift in Sources */,
 				D782754D22962F20009862BF /* AdminMonthTableViewController.swift in Sources */,
 				D75AF5D72298347E000E7C9B /* FirebaseTableViewCell.swift in Sources */,
-				D705046E22944D5D0099BE02 /* DayTableViewCellBak.swift in Sources */,
-				D705046822943AB00099BE02 /* ProfitTableViewCellBak.swift in Sources */,
 				D7827558229641FD009862BF /* AddWeekTableViewCell.swift in Sources */,
 				D782755622963CA1009862BF /* AdminWeekTableViewController.swift in Sources */,
 				D75AF5E322983C75000E7C9B /* DayTableViewController.swift in Sources */,
-				D705046222943A0F0099BE02 /* MonthTableViewControllerBak.swift in Sources */,
 				D705046A22943E3C0099BE02 /* Logs.swift in Sources */,
+				D75AF5E622984115000E7C9B /* DayTableViewCell.swift in Sources */,
 				D7EC6C3322949F6600C597C2 /* ChatBox.swift in Sources */,
 				D7050434229385E20099BE02 /* AppDelegate.swift in Sources */,
 				D782754F22962FA3009862BF /* AddMonthTableViewCell.swift in Sources */,
 				D7050473229472660099BE02 /* SignalTableViewCell.swift in Sources */,
-				D705046422943A1A0099BE02 /* WeekTableViewControllerBak.swift in Sources */,
 				D782755D22970F9B009862BF /* AddDAYTableViewCell.swift in Sources */,
 				D782755A22970A7C009862BF /* AdminDayTableViewController.swift in Sources */,
 				D75AF5E1229839B6000E7C9B /* WeekTableViewController.swift in Sources */,
@@ -554,7 +531,6 @@
 				D782755122963347009862BF /* FirebaseTableViewController.swift in Sources */,
 				D78275482295D17A009862BF /* SegViewController.swift in Sources */,
 				D705046C229449E90099BE02 /* Constants.swift in Sources */,
-				D705046622943A2E0099BE02 /* DayTableViewControllerBak.swift in Sources */,
 				D75AF5DB229836C7000E7C9B /* MonthTableViewController.swift in Sources */,
 				D7050471229472580099BE02 /* SignalTableViewController.swift in Sources */,
 			);

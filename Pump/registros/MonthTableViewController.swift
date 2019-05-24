@@ -14,7 +14,7 @@ import FirebaseDatabase
 class MonthTableViewController: FirebaseTableViewController {
     
     override func viewDidLoad() {
-        self.segueId = "showWeek"
+        self.segueId = super.noSegue
         self.ref = Database.database().reference().child("/months")
         super.viewDidLoad()
         // Uncomment the following line to preserve selection between presentations
@@ -44,5 +44,6 @@ class MonthTableViewController: FirebaseTableViewController {
         let dest = segue.destination as! WeekTableViewController
         
         dest.month = cell.data
+        dest.navigationItem.title = Constants.MONTH_ACR.keys.contains(cell.data!.name.uppercased()) ? Constants.MONTH_ACR[cell.data!.name.uppercased()] : cell.data!.name
     }
 }

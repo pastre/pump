@@ -16,7 +16,7 @@ class DayTableViewController: FirebaseTableViewController {
     var week: BaseFirebaseRef!
     
     override func viewDidLoad() {
-        self.segueId = "showDay"
+        self.segueId = super.noSegue
         self.ref = Database.database().reference().child("/months/\(month.key!)/weeks/\(week.key!)/days")
         super.viewDidLoad()
     }

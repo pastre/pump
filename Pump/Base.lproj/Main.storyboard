@@ -141,7 +141,7 @@
                                 <connections>
                                     <outlet property="profit" destination="Yr0-24-kPN" id="iNT-HU-E0z"/>
                                     <outlet property="title" destination="NTt-qk-Jf6" id="KTM-GY-Evw"/>
-                                    <segue destination="k5p-jG-BMt" kind="show" identifier="showWeek" id="949-QY-ifz"/>
+                                    <segue destination="k5p-jG-BMt" kind="show" id="eBS-4W-NW3"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -544,7 +544,7 @@
                                 <connections>
                                     <outlet property="profit" destination="1NA-C8-wmg" id="dc3-FB-Y1j"/>
                                     <outlet property="title" destination="dqd-dW-9Ye" id="Yow-4m-A4Y"/>
-                                    <segue destination="Oij-jB-AFk" kind="show" id="c1X-4x-j0i"/>
+                                    <segue destination="Oij-jB-AFk" kind="show" id="mDF-Sf-gZ9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
