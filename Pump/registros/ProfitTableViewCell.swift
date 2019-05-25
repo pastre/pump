@@ -15,7 +15,6 @@ class ProfitTableViewCell: UITableViewCell {
     
     var data: BaseFirebaseRef?
     var path: String!
-    var log: Log!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -29,13 +28,15 @@ class ProfitTableViewCell: UITableViewCell {
     }
     
     func setPositive(){
-        self.profit.textColor = Constants.PLUS_GREEN
-        self.profit.text = "+\(self.log.profit!)%"
+        // TODO: Reimplementar baseado na data
+        //        self.profit.textColor = Constants.PLUS_GREEN
+//        self.profit.text = "+\(self.log.profit!)%"
     }
     
     func setNegative(){
-        self.profit.textColor = Constants.NEGATIVE_RED
-        self.profit.text = "\(self.log.profit!)%"
+        // TODO: Reimplementar baseado na data
+//        self.profit.textColor = Constants.NEGATIVE_RED
+//        self.profit.text = "\(self.log.profit!)%"
         
     }
     

@@ -26,23 +26,24 @@ class DayTableViewCell: ProfitTableViewCell{
     }
     
     func setupCalls(){
-        let log = self.log as! Day
-        let a1 = log.actions[0], a2 = log.actions[1]
-        
-        if a1 == "compre"{
-            self.firstAction.textColor = Constants.PLUS_GREEN
-        }else{
-            self.firstAction.textColor = Constants.NEGATIVE_RED
-        }
-        
-        if a2 == "compra"{
-            self.secondAction.textColor = Constants.PLUS_GREEN
-        }else{
-            self.secondAction.textColor = Constants.NEGATIVE_RED
-        }
-        
-        self.firstAction.text = a1
-        self.secondAction.text = a2
-        
+        // TODO: Reimplementar
+//        let log = self.log as! Day
+//        let a1 = log.actions[0], a2 = log.actions[1]
+//
+//        if a1 == "compre"{
+//            self.firstAction.textColor = Constants.PLUS_GREEN
+//        }else{
+//            self.firstAction.textColor = Constants.NEGATIVE_RED
+//        }
+//
+//        if a2 == "compra"{
+//            self.secondAction.textColor = Constants.PLUS_GREEN
+//        }else{
+//            self.secondAction.textColor = Constants.NEGATIVE_RED
+//        }
+//
+//        self.firstAction.text = a1
+//        self.secondAction.text = a2
+//
     }
 }

@@ -11,13 +11,12 @@
 		41C24E877E635100207D38D2 /* Pods_PumpTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24E52702883426696FB23E17 /* Pods_PumpTests.framework */; };
 		4FFC69BB0E1710685DF50693 /* Pods_Pump.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFDE8D9C59F63B709FD4A0CA /* Pods_Pump.framework */; };
 		D7050434229385E20099BE02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050433229385E20099BE02 /* AppDelegate.swift */; };
-		D7050436229385E20099BE02 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050435229385E20099BE02 /* ViewController.swift */; };
 		D7050439229385E20099BE02 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7050437229385E20099BE02 /* Main.storyboard */; };
 		D705043B229385E30099BE02 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D705043A229385E30099BE02 /* Assets.xcassets */; };
 		D705043E229385E30099BE02 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D705043C229385E30099BE02 /* LaunchScreen.storyboard */; };
 		D7050449229385E30099BE02 /* PumpTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050448229385E30099BE02 /* PumpTests.swift */; };
 		D7050454229385E30099BE02 /* PumpUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050453229385E30099BE02 /* PumpUITests.swift */; };
-		D705046A22943E3C0099BE02 /* Logs.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705046922943E3C0099BE02 /* Logs.swift */; };
+		D705046A22943E3C0099BE02 /* Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705046922943E3C0099BE02 /* Signal.swift */; };
 		D705046C229449E90099BE02 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705046B229449E90099BE02 /* Constants.swift */; };
 		D7050471229472580099BE02 /* SignalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050470229472580099BE02 /* SignalTableViewController.swift */; };
 		D7050473229472660099BE02 /* SignalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050472229472660099BE02 /* SignalTableViewCell.swift */; };
@@ -28,17 +27,17 @@
 		D75AF5E1229839B6000E7C9B /* WeekTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AF5E0229839B6000E7C9B /* WeekTableViewController.swift */; };
 		D75AF5E322983C75000E7C9B /* DayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AF5E222983C75000E7C9B /* DayTableViewController.swift */; };
 		D75AF5E622984115000E7C9B /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AF5E422984115000E7C9B /* DayTableViewCell.swift */; };
-		D78275482295D17A009862BF /* SegViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78275472295D17A009862BF /* SegViewController.swift */; };
 		D782754D22962F20009862BF /* AdminMonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782754C22962F20009862BF /* AdminMonthTableViewController.swift */; };
 		D782754F22962FA3009862BF /* AddMonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782754E22962FA3009862BF /* AddMonthTableViewCell.swift */; };
 		D782755122963347009862BF /* FirebaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782755022963347009862BF /* FirebaseTableViewController.swift */; };
-		D78275532296340D009862BF /* FirebaseRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78275522296340D009862BF /* FirebaseRef.swift */; };
+		D78275532296340D009862BF /* BaseFirebaseRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78275522296340D009862BF /* BaseFirebaseRef.swift */; };
 		D782755622963CA1009862BF /* AdminWeekTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782755522963CA1009862BF /* AdminWeekTableViewController.swift */; };
 		D7827558229641FD009862BF /* AddWeekTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7827557229641FD009862BF /* AddWeekTableViewCell.swift */; };
 		D782755A22970A7C009862BF /* AdminDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782755922970A7C009862BF /* AdminDayTableViewController.swift */; };
 		D782755D22970F9B009862BF /* AddDAYTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782755C22970F9B009862BF /* AddDAYTableViewCell.swift */; };
 		D79434732294AFB2008687E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D79434722294AFB2008687E5 /* GoogleService-Info.plist */; };
 		D7EC6C3322949F6600C597C2 /* ChatBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EC6C3222949F6600C597C2 /* ChatBox.swift */; };
+		D7F4F01622994C70000589F4 /* DayRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F4F01522994C70000589F4 /* DayRef.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +66,6 @@
 		BFDE8D9C59F63B709FD4A0CA /* Pods_Pump.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Pump.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7050430229385E20099BE02 /* Pump.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pump.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7050433229385E20099BE02 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D7050435229385E20099BE02 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		D7050438229385E20099BE02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D705043A229385E30099BE02 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D705043D229385E30099BE02 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -78,7 +76,7 @@
 		D705044F229385E30099BE02 /* PumpUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PumpUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7050453229385E30099BE02 /* PumpUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PumpUITests.swift; sourceTree = "<group>"; };
 		D7050455229385E30099BE02 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D705046922943E3C0099BE02 /* Logs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logs.swift; sourceTree = "<group>"; };
+		D705046922943E3C0099BE02 /* Signal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signal.swift; sourceTree = "<group>"; };
 		D705046B229449E90099BE02 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D7050470229472580099BE02 /* SignalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTableViewController.swift; sourceTree = "<group>"; };
 		D7050472229472660099BE02 /* SignalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTableViewCell.swift; sourceTree = "<group>"; };
@@ -89,17 +87,17 @@
 		D75AF5E0229839B6000E7C9B /* WeekTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekTableViewController.swift; sourceTree = "<group>"; };
 		D75AF5E222983C75000E7C9B /* DayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTableViewController.swift; sourceTree = "<group>"; };
 		D75AF5E422984115000E7C9B /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
-		D78275472295D17A009862BF /* SegViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegViewController.swift; sourceTree = "<group>"; };
 		D782754C22962F20009862BF /* AdminMonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMonthTableViewController.swift; sourceTree = "<group>"; };
 		D782754E22962FA3009862BF /* AddMonthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonthTableViewCell.swift; sourceTree = "<group>"; };
 		D782755022963347009862BF /* FirebaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTableViewController.swift; sourceTree = "<group>"; };
-		D78275522296340D009862BF /* FirebaseRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseRef.swift; sourceTree = "<group>"; };
+		D78275522296340D009862BF /* BaseFirebaseRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFirebaseRef.swift; sourceTree = "<group>"; };
 		D782755522963CA1009862BF /* AdminWeekTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminWeekTableViewController.swift; sourceTree = "<group>"; };
 		D7827557229641FD009862BF /* AddWeekTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWeekTableViewCell.swift; sourceTree = "<group>"; };
 		D782755922970A7C009862BF /* AdminDayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDayTableViewController.swift; sourceTree = "<group>"; };
 		D782755C22970F9B009862BF /* AddDAYTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDAYTableViewCell.swift; sourceTree = "<group>"; };
 		D79434722294AFB2008687E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D7EC6C3222949F6600C597C2 /* ChatBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBox.swift; sourceTree = "<group>"; };
+		D7F4F01522994C70000589F4 /* DayRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayRef.swift; sourceTree = "<group>"; };
 		DDFDC1779746A48B27FED1B2 /* Pods-PumpUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PumpUITests.release.xcconfig"; path = "Target Support Files/Pods-PumpUITests/Pods-PumpUITests.release.xcconfig"; sourceTree = "<group>"; };
 		EB7FF9810345A907CA844B2B /* Pods-Pump.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pump.debug.xcconfig"; path = "Target Support Files/Pods-Pump/Pods-Pump.debug.xcconfig"; sourceTree = "<group>"; };
 		FF3C6AE1703560822EBC9AF4 /* Pods-Pump.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Pump.release.xcconfig"; path = "Target Support Files/Pods-Pump/Pods-Pump.release.xcconfig"; sourceTree = "<group>"; };
@@ -181,20 +179,18 @@
 		D7050432229385E20099BE02 /* Pump */ = {
 			isa = PBXGroup;
 			children = (
+				D7F4F01322994B4F000589F4 /* designables */,
 				D738B34A2295B008007B4C05 /* admin */,
 				D7050474229472900099BE02 /* signal */,
 				D705046F229472150099BE02 /* registros */,
-				D7050435229385E20099BE02 /* ViewController.swift */,
-				D705046922943E3C0099BE02 /* Logs.swift */,
-				D705046B229449E90099BE02 /* Constants.swift */,
-				D7050437229385E20099BE02 /* Main.storyboard */,
-				D7EC6C3222949F6600C597C2 /* ChatBox.swift */,
+				D7F4F01822994C99000589F4 /* generic */,
+				D7F4F01722994C8A000589F4 /* model */,
 				D7050433229385E20099BE02 /* AppDelegate.swift */,
+				D705046B229449E90099BE02 /* Constants.swift */,
 				D705043A229385E30099BE02 /* Assets.xcassets */,
 				D705043C229385E30099BE02 /* LaunchScreen.storyboard */,
 				D705043F229385E30099BE02 /* Info.plist */,
 				D79434722294AFB2008687E5 /* GoogleService-Info.plist */,
-				D78275472295D17A009862BF /* SegViewController.swift */,
 			);
 			path = Pump;
 			sourceTree = "<group>";
@@ -241,9 +237,6 @@
 		D738B34A2295B008007B4C05 /* admin */ = {
 			isa = PBXGroup;
 			children = (
-				D75AF5D62298347E000E7C9B /* FirebaseTableViewCell.swift */,
-				D782755022963347009862BF /* FirebaseTableViewController.swift */,
-				D78275522296340D009862BF /* FirebaseRef.swift */,
 				D782755B22970A80009862BF /* day */,
 				D782755422963C2E009862BF /* week */,
 				D782754922962EF2009862BF /* month */,
@@ -277,6 +270,34 @@
 				D782755C22970F9B009862BF /* AddDAYTableViewCell.swift */,
 			);
 			path = day;
+			sourceTree = "<group>";
+		};
+		D7F4F01322994B4F000589F4 /* designables */ = {
+			isa = PBXGroup;
+			children = (
+				D7050437229385E20099BE02 /* Main.storyboard */,
+				D7EC6C3222949F6600C597C2 /* ChatBox.swift */,
+			);
+			path = designables;
+			sourceTree = "<group>";
+		};
+		D7F4F01722994C8A000589F4 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D78275522296340D009862BF /* BaseFirebaseRef.swift */,
+				D7F4F01522994C70000589F4 /* DayRef.swift */,
+				D705046922943E3C0099BE02 /* Signal.swift */,
+			);
+			path = model;
+			sourceTree = "<group>";
+		};
+		D7F4F01822994C99000589F4 /* generic */ = {
+			isa = PBXGroup;
+			children = (
+				D782755022963347009862BF /* FirebaseTableViewController.swift */,
+				D75AF5D62298347E000E7C9B /* FirebaseTableViewCell.swift */,
+			);
+			path = generic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -512,14 +533,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D78275532296340D009862BF /* FirebaseRef.swift in Sources */,
-				D7050436229385E20099BE02 /* ViewController.swift in Sources */,
+				D7F4F01622994C70000589F4 /* DayRef.swift in Sources */,
+				D78275532296340D009862BF /* BaseFirebaseRef.swift in Sources */,
 				D782754D22962F20009862BF /* AdminMonthTableViewController.swift in Sources */,
 				D75AF5D72298347E000E7C9B /* FirebaseTableViewCell.swift in Sources */,
 				D7827558229641FD009862BF /* AddWeekTableViewCell.swift in Sources */,
 				D782755622963CA1009862BF /* AdminWeekTableViewController.swift in Sources */,
 				D75AF5E322983C75000E7C9B /* DayTableViewController.swift in Sources */,
-				D705046A22943E3C0099BE02 /* Logs.swift in Sources */,
+				D705046A22943E3C0099BE02 /* Signal.swift in Sources */,
 				D75AF5E622984115000E7C9B /* DayTableViewCell.swift in Sources */,
 				D7EC6C3322949F6600C597C2 /* ChatBox.swift in Sources */,
 				D7050434229385E20099BE02 /* AppDelegate.swift in Sources */,
@@ -531,7 +552,6 @@
 				D75AF5DF229838C1000E7C9B /* ProfitTableViewCell.swift in Sources */,
 				D738B34C2295B01D007B4C05 /* SignalViewController.swift in Sources */,
 				D782755122963347009862BF /* FirebaseTableViewController.swift in Sources */,
-				D78275482295D17A009862BF /* SegViewController.swift in Sources */,
 				D705046C229449E90099BE02 /* Constants.swift in Sources */,
 				D75AF5DB229836C7000E7C9B /* MonthTableViewController.swift in Sources */,
 				D7050471229472580099BE02 /* SignalTableViewController.swift in Sources */,
