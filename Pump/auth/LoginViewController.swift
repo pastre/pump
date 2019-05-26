@@ -10,13 +10,19 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var emailtTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
     
-
+    @IBAction func onLogin(_ sender: Any) {
+        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        
+    }
+    
     /*
     // MARK: - Navigation
 

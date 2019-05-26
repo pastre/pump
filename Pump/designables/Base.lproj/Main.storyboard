@@ -198,14 +198,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asx-Tv-Br7">
-                                <rect key="frame" x="186" y="739" width="42" height="63"/>
+                                <rect key="frame" x="186" y="717" width="42" height="85"/>
                                 <state key="normal" title="Enviar"/>
                                 <connections>
                                     <action selector="onSend:" destination="4eE-Ek-97k" eventType="touchUpInside" id="3OW-yH-UXR"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Jd-4H-fsQ">
-                                <rect key="frame" x="41.5" y="251" width="331" height="448"/>
+                                <rect key="frame" x="41.5" y="229" width="331" height="448"/>
                                 <color key="backgroundColor" red="0.87561468909999995" green="0.87561468909999995" blue="0.87561468909999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -574,6 +574,71 @@
             </objects>
             <point key="canvasLocation" x="136" y="858"/>
         </scene>
+        <!--Login View Controller-->
+        <scene sceneID="qrZ-7U-XYj">
+            <objects>
+                <viewController id="RyJ-fx-pXS" customClass="LoginViewController" customModule="Pump" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="few-D9-e1p">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LPm-Qm-xK8">
+                                <rect key="frame" x="74" y="370" width="266" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZTn-aP-XgM">
+                                <rect key="frame" x="87" y="145" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="urk-fS-h83">
+                                <rect key="frame" x="74" y="400" width="266" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Senha" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6bM-wE-T9H">
+                                        <rect key="frame" x="0.0" y="5" width="216" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mmj-kQ-97W">
+                                        <rect key="frame" x="224" y="2" width="38" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Login"/>
+                                        <connections>
+                                            <action selector="onLogin:" destination="RyJ-fx-pXS" eventType="touchUpInside" id="HSZ-dC-2d1"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f8h-IU-XxD">
+                                <rect key="frame" x="153" y="519" width="109" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Criar uma conta"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0h-up-7Sv">
+                                <rect key="frame" x="135" y="459" width="145" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Esqueci minha senha"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="OqM-p2-K1S"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailtTextField" destination="LPm-Qm-xK8" id="4E2-ya-iKw"/>
+                        <outlet property="passwordTextField" destination="6bM-wE-T9H" id="05w-oE-X30"/>
+                        <segue destination="DB0-OJ-oU5" kind="show" identifier="loginSegue" id="ZvI-SO-4b8"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jTy-1H-4GF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="134.78260869565219" y="1553.5714285714284"/>
+        </scene>
         <!--Day Table View Controller-->
         <scene sceneID="6hf-bu-SeF">
             <objects>
@@ -668,4 +733,7 @@
             <point key="canvasLocation" x="3354" y="876"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZvI-SO-4b8"/>
+    </inferredMetricsTieBreakers>
 </document>
