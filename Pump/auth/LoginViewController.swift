@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import FirebaseAuth
+import Firebase
+
 
 class LoginViewController: UIViewController {
 
     @IBOutlet weak var emailtTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +23,47 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onLogin(_ sender: Any) {
-        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+        
+        if !self.emailtTextField.hasText {
+            print("Handling email failure")
+            return
+            
+        }
+        if !self.passwordTextField.hasText {
+            print("Handling pwd failure")
+            return
+            
+        }
+        
+        
+        let email = self.emailtTextField.text!
+        let password = self.passwordTextField.text!
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (r, error) in
+            
+            if error != nil {
+                
+                if let errCode = AuthErrorCode(rawValue: error!._code) {
+                    
+                    switch errCode {
+                        
+                    case .invalidEmail:
+                        print("invalid email")
+                    case .userNotFound:
+                        print("Nao achei esse viado")
+                    case .wrongPassword:
+                        print("Deu ruim na senha")
+                    default:
+                        print("Other error!")
+                    }
+                }
+                
+            } else {
+                print("Login deu boa1")
+                self.performSegue(withIdentifier: "loginSegue", sender: sender)
+            }
+            
+        }
         
     }
     
