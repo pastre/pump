@@ -42,8 +42,27 @@ class SignUpViewController: UIViewController {
     @IBAction func onSignUp(_ sender: Any) {
         guard let email = self.validateField(f1: self.emailTextField, f2: self.emailTextField) else { return }
         guard let password = self.validateField(f1: self.passwordTextField, f2: self.passwordTextField) else { return }
-        
-        
+        guard let name = self.nameTextField.text else {
+            return
+        }
+        Auth.auth().createUser(withEmail: email, password: password) { (r, e) in
+            guard let result = r else{
+                print("Erro ao criar o usuario", e?.localizedDescription)
+                return
+            }
+            
+            let changeReq = result.user.createProfileChangeRequest()
+            
+            changeReq.displayName = name
+            
+            changeReq.commitChanges(completion: { (e) in
+                if let error = e{
+                    print("Erro ao modificar o nome do viado", error.localizedDescription)
+                }else{
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
+        }
     }
     
     @IBAction func onCancel(_ sender: Any) {
