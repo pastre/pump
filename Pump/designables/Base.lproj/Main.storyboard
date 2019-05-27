@@ -207,11 +207,11 @@
             </objects>
             <point key="canvasLocation" x="2586" y="84"/>
         </scene>
-        <!--Item-->
+        <!--Sinais-->
         <scene sceneID="8hD-M2-YjT">
             <objects>
                 <navigationController id="G38-k5-bYR" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="eZ5-oL-L6z"/>
+                    <tabBarItem key="tabBarItem" title="Sinais" id="eZ5-oL-L6z"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VyP-AW-IBD">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

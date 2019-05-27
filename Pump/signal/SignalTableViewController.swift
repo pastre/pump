@@ -64,7 +64,7 @@ class SignalTableViewController: UITableViewController {
             if user["isAdmin"] as! Bool  {
                 self.enableAdmin()
             }
-            self.enableAdmin()
+//            self.enableAdmin()
         })
     }
     
