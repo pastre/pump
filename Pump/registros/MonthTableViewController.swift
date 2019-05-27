@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 import FirebaseDatabase
-
+import FirebaseAuth
 
 class MonthTableViewController: FirebaseTableViewController {
     
@@ -22,6 +22,31 @@ class MonthTableViewController: FirebaseTableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.checkAdmin()
+    }
+    
+    func checkAdmin(){
+        let uid = Auth.auth().currentUser!.uid
+        let ref = Database.database().reference().child("users/\(uid)")
+        ref.observeSingleEvent(of: .value, with: {
+            (snap) in
+            print("Vale", snap.value)
+            let user = snap.value as! NSDictionary
+            if user["isAdmin"] as! Bool  {
+                self.enableAdmin()
+            }
+            self.enableAdmin()
+        })
+    }
+    
+    func enableAdmin(){
+        let btt = UIBarButtonItem(title: "Admin", style: .plain, target: self, action: #selector(self.presentAdmin))
+//        btt.title = "asd"
+        self.navigationItem.rightBarButtonItem = btt
+    }
+    
+    @objc func presentAdmin(){
+        self.performSegue(withIdentifier: "adminLog", sender: "admin")
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -40,6 +65,9 @@ class MonthTableViewController: FirebaseTableViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if sender is String{
+            return
+        }
         let cell = sender as! ProfitTableViewCell
         let dest = segue.destination as! WeekTableViewController
         

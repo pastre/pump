@@ -71,7 +71,7 @@ class SignUpViewController: UIViewController {
                     print("Erro ao modificar o nome do viado", error.localizedDescription)
                 }else{
                     let uid = result.user.uid
-                    Database.database().reference().child("users\(uid)").setValue(["phone": phone, "isAdmin": false])
+                    Database.database().reference().child("users/\(uid)").setValue(["phone": phone, "isAdmin": false])
                     self.dismiss(animated: true, completion: nil)
                 }
             })

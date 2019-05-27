@@ -24,20 +24,24 @@ class LoginViewController: UIViewController {
     
     @IBAction func onLogin(_ sender: Any) {
         
-        if !self.emailtTextField.hasText {
-            print("Handling email failure")
-            return
-            
-        }
-        if !self.passwordTextField.hasText {
-            print("Handling pwd failure")
-            return
-            
-        }
+//        if !self.emailtTextField.hasText {
+//            print("Handling email failure")
+//            return
+//            
+//        }
+//        if !self.passwordTextField.hasText {
+//            print("Handling pwd failure")
+//            return
+//            
+//        }
+//        
+        
+        var email = self.emailtTextField.text!
+        var password = self.passwordTextField.text!
         
         
-        let email = self.emailtTextField.text!
-        let password = self.passwordTextField.text!
+        email = "pastr68@gmail.com"
+        password = "asdfghjkl"
         
         Auth.auth().signIn(withEmail: email, password: password) { (r, error) in
             
