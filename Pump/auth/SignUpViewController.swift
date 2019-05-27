@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController {
 
@@ -42,12 +43,22 @@ class SignUpViewController: UIViewController {
     @IBAction func onSignUp(_ sender: Any) {
         guard let email = self.validateField(f1: self.emailTextField, f2: self.emailTextField) else { return }
         guard let password = self.validateField(f1: self.passwordTextField, f2: self.passwordTextField) else { return }
-        guard let name = self.nameTextField.text else {
-            return
-        }
+        guard let name = self.nameTextField.text else { return }
+        guard let phone = self.phoneTextField.text else { return }
         Auth.auth().createUser(withEmail: email, password: password) { (r, e) in
             guard let result = r else{
-                print("Erro ao criar o usuario", e?.localizedDescription)
+                if let errCode = AuthErrorCode(rawValue: e!._code) {
+                    switch errCode {
+                        case .invalidEmail:
+                            print("invalid email")
+                        case .userNotFound:
+                            print("Nao achei esse viado")
+                        case .wrongPassword:
+                            print("Deu ruim na senha")
+                        default:
+                            print("Other error!")
+                    }
+                }
                 return
             }
             
@@ -59,6 +70,8 @@ class SignUpViewController: UIViewController {
                 if let error = e{
                     print("Erro ao modificar o nome do viado", error.localizedDescription)
                 }else{
+                    let uid = result.user.uid
+                    Database.database().reference().child("users\(uid)").setValue(["phone": phone, "isAdmin": false])
                     self.dismiss(animated: true, completion: nil)
                 }
             })

@@ -198,14 +198,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="asx-Tv-Br7">
-                                <rect key="frame" x="186" y="717" width="42" height="85"/>
+                                <rect key="frame" x="186" y="739" width="42" height="63"/>
                                 <state key="normal" title="Enviar"/>
                                 <connections>
                                     <action selector="onSend:" destination="4eE-Ek-97k" eventType="touchUpInside" id="3OW-yH-UXR"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Jd-4H-fsQ">
-                                <rect key="frame" x="41.5" y="229" width="331" height="448"/>
+                                <rect key="frame" x="41.5" y="251" width="331" height="448"/>
                                 <color key="backgroundColor" red="0.87561468909999995" green="0.87561468909999995" blue="0.87561468909999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -572,7 +572,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ra-hK-LNI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="136" y="858"/>
+            <point key="canvasLocation" x="135" y="858"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="qrZ-7U-XYj">
@@ -820,6 +820,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZvI-SO-4b8"/>
+        <segue reference="EMt-34-dzK"/>
     </inferredMetricsTieBreakers>
 </document>
