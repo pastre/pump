@@ -20,6 +20,9 @@
 		D705046C229449E90099BE02 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D705046B229449E90099BE02 /* Constants.swift */; };
 		D7050471229472580099BE02 /* SignalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050470229472580099BE02 /* SignalTableViewController.swift */; };
 		D7050473229472660099BE02 /* SignalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7050472229472660099BE02 /* SignalTableViewCell.swift */; };
+		D71021BA229DE32400AEFB30 /* Offer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71021B9229DE32400AEFB30 /* Offer.swift */; };
+		D71021BC229DE52100AEFB30 /* OfferTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71021BB229DE52100AEFB30 /* OfferTableViewCell.swift */; };
+		D71021BE229E2CB400AEFB30 /* DeadlineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71021BD229E2CB400AEFB30 /* DeadlineView.swift */; };
 		D738B34C2295B01D007B4C05 /* SignalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D738B34B2295B01D007B4C05 /* SignalViewController.swift */; };
 		D75AF5D72298347E000E7C9B /* FirebaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AF5D62298347E000E7C9B /* FirebaseTableViewCell.swift */; };
 		D75AF5DB229836C7000E7C9B /* MonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AF5DA229836C7000E7C9B /* MonthTableViewController.swift */; };
@@ -36,6 +39,8 @@
 		D782755A22970A7C009862BF /* AdminDayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782755922970A7C009862BF /* AdminDayTableViewController.swift */; };
 		D782755D22970F9B009862BF /* AddDAYTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782755C22970F9B009862BF /* AddDAYTableViewCell.swift */; };
 		D79434732294AFB2008687E5 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D79434722294AFB2008687E5 /* GoogleService-Info.plist */; };
+		D79BCE8B229C79240099F5FD /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BCE8A229C79240099F5FD /* User.swift */; };
+		D79BCE8F229CD7310099F5FD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D79BCE8E229CD7310099F5FD /* ProfileViewController.swift */; };
 		D7EC6C3322949F6600C597C2 /* ChatBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EC6C3222949F6600C597C2 /* ChatBox.swift */; };
 		D7EEB942229AE4A400A8286C /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EEB941229AE4A400A8286C /* SignUpViewController.swift */; };
 		D7EEB944229AE4C300A8286C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7EEB943229AE4C300A8286C /* LoginViewController.swift */; };
@@ -82,6 +87,9 @@
 		D705046B229449E90099BE02 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D7050470229472580099BE02 /* SignalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTableViewController.swift; sourceTree = "<group>"; };
 		D7050472229472660099BE02 /* SignalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalTableViewCell.swift; sourceTree = "<group>"; };
+		D71021B9229DE32400AEFB30 /* Offer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Offer.swift; sourceTree = "<group>"; };
+		D71021BB229DE52100AEFB30 /* OfferTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferTableViewCell.swift; sourceTree = "<group>"; };
+		D71021BD229E2CB400AEFB30 /* DeadlineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeadlineView.swift; sourceTree = "<group>"; };
 		D738B34B2295B01D007B4C05 /* SignalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignalViewController.swift; sourceTree = "<group>"; };
 		D75AF5D62298347E000E7C9B /* FirebaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTableViewCell.swift; sourceTree = "<group>"; };
 		D75AF5DA229836C7000E7C9B /* MonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthTableViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +106,8 @@
 		D782755922970A7C009862BF /* AdminDayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminDayTableViewController.swift; sourceTree = "<group>"; };
 		D782755C22970F9B009862BF /* AddDAYTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDAYTableViewCell.swift; sourceTree = "<group>"; };
 		D79434722294AFB2008687E5 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D79BCE8A229C79240099F5FD /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		D79BCE8E229CD7310099F5FD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D7EC6C3222949F6600C597C2 /* ChatBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatBox.swift; sourceTree = "<group>"; };
 		D7EEB941229AE4A400A8286C /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		D7EEB943229AE4C300A8286C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +193,7 @@
 		D7050432229385E20099BE02 /* Pump */ = {
 			isa = PBXGroup;
 			children = (
+				D747876B229C7710001761F0 /* profile */,
 				D7EEB93E229AE48800A8286C /* auth */,
 				D7F4F01322994B4F000589F4 /* designables */,
 				D738B34A2295B008007B4C05 /* admin */,
@@ -250,6 +261,15 @@
 			path = admin;
 			sourceTree = "<group>";
 		};
+		D747876B229C7710001761F0 /* profile */ = {
+			isa = PBXGroup;
+			children = (
+				D79BCE8E229CD7310099F5FD /* ProfileViewController.swift */,
+				D71021BB229DE52100AEFB30 /* OfferTableViewCell.swift */,
+			);
+			path = profile;
+			sourceTree = "<group>";
+		};
 		D782754922962EF2009862BF /* month */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +311,7 @@
 			children = (
 				D7050437229385E20099BE02 /* Main.storyboard */,
 				D7EC6C3222949F6600C597C2 /* ChatBox.swift */,
+				D71021BD229E2CB400AEFB30 /* DeadlineView.swift */,
 			);
 			path = designables;
 			sourceTree = "<group>";
@@ -301,6 +322,8 @@
 				D78275522296340D009862BF /* BaseFirebaseRef.swift */,
 				D7F4F01522994C70000589F4 /* DayRef.swift */,
 				D705046922943E3C0099BE02 /* Signal.swift */,
+				D79BCE8A229C79240099F5FD /* User.swift */,
+				D71021B9229DE32400AEFB30 /* Offer.swift */,
 			);
 			path = model;
 			sourceTree = "<group>";
@@ -551,11 +574,13 @@
 				D78275532296340D009862BF /* BaseFirebaseRef.swift in Sources */,
 				D782754D22962F20009862BF /* AdminMonthTableViewController.swift in Sources */,
 				D75AF5D72298347E000E7C9B /* FirebaseTableViewCell.swift in Sources */,
+				D79BCE8B229C79240099F5FD /* User.swift in Sources */,
 				D7827558229641FD009862BF /* AddWeekTableViewCell.swift in Sources */,
 				D782755622963CA1009862BF /* AdminWeekTableViewController.swift in Sources */,
 				D75AF5E322983C75000E7C9B /* DayTableViewController.swift in Sources */,
 				D705046A22943E3C0099BE02 /* Signal.swift in Sources */,
 				D75AF5E622984115000E7C9B /* DayTableViewCell.swift in Sources */,
+				D79BCE8F229CD7310099F5FD /* ProfileViewController.swift in Sources */,
 				D7EC6C3322949F6600C597C2 /* ChatBox.swift in Sources */,
 				D7050434229385E20099BE02 /* AppDelegate.swift in Sources */,
 				D782754F22962FA3009862BF /* AddMonthTableViewCell.swift in Sources */,
@@ -565,10 +590,13 @@
 				D782755A22970A7C009862BF /* AdminDayTableViewController.swift in Sources */,
 				D75AF5E1229839B6000E7C9B /* WeekTableViewController.swift in Sources */,
 				D75AF5DF229838C1000E7C9B /* ProfitTableViewCell.swift in Sources */,
+				D71021BC229DE52100AEFB30 /* OfferTableViewCell.swift in Sources */,
+				D71021BE229E2CB400AEFB30 /* DeadlineView.swift in Sources */,
 				D738B34C2295B01D007B4C05 /* SignalViewController.swift in Sources */,
 				D7EEB942229AE4A400A8286C /* SignUpViewController.swift in Sources */,
 				D782755122963347009862BF /* FirebaseTableViewController.swift in Sources */,
 				D705046C229449E90099BE02 /* Constants.swift in Sources */,
+				D71021BA229DE32400AEFB30 /* Offer.swift in Sources */,
 				D75AF5DB229836C7000E7C9B /* MonthTableViewController.swift in Sources */,
 				D7050471229472580099BE02 /* SignalTableViewController.swift in Sources */,
 			);
