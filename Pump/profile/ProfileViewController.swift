@@ -7,13 +7,14 @@
 //
 
 import UIKit
+import StoreKit
 import FirebaseDatabase
 import FirebaseAuth
 
 
-class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SKPaymentTransactionObserver, SKProductsRequestDelegate{
 
-
+    
     @IBOutlet weak var userImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -26,30 +27,51 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     lazy var user = Auth.auth().currentUser!
     
-    var offersRef: DatabaseReference!
     var offers: [Offer]!
+    
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.offers = [Offer]()
+//        Auth.auth().signIn(withEmail: "aaa@aaa.com", password: "aaaaaaaaaa") { (_, e) in
         
-        self.offersTableView.dataSource = self
-        self.offersTableView.delegate = self
-        
-        self.offersRef = Database.database().reference().child("offers")
-        
-        offersRef.observe(.childAdded) { (snap) in
-            self.onOfferAdded(snapshot: snap)
+            self.offers = [Offer]()
             
-        }
+            self.offersTableView.dataSource = self
+            self.offersTableView.delegate = self
+            SKPaymentQueue.default().add(self)
+            
+            self.setupName()
+            self.setupPhoneListener()
+            
+            self.setupProductRequest()
+            
+//        }
         
-        self.setupName()
-        self.setupPhoneListener()
-        
-        // Do any additional setup after loading the view.
+        let queue = SKPaymentQueue.default();
+        var tr = queue.transactions.count
+        print("I have", tr, "transactions on hold")
+        queue.transactions.forEach {
+            print("Clearing", $0)
+            queue.finishTransaction($0) }
+        tr = queue.transactions.count
+        print("I have", tr, "transactions on hold")
+
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        
+        SKPaymentQueue.default().remove(self)
+    }
+    
+    func setupProductRequest(){
+        let request = SKProductsRequest(productIdentifiers: ["trintad"])
+        request.delegate = self
+        request.start()
+        
+    }
+    
     func setupPhoneListener(){
         Database.database().reference().child("users").child(user.uid).observe(.value) { (snap) in
             let asDict = snap.value as! NSDictionary
@@ -79,7 +101,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         self.offersTableView.reloadData()
     }
     
-    // MARK: - Table view delegate/data source
+    // MARK: - Table view methods
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -95,10 +117,64 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         let offer = self.offers[indexPath.item]
         cell.nameLabel.text = offer.name
         cell.valueLabel.text = "R$\(Int(offer.value))"
+        cell.offer = offer
+        
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = tableView.cellForRow(at: indexPath) as! OfferTableViewCell
+        let product = row.offer.product!
+        
+        let payment = SKPayment(product: product)
+        print("Saca so irmao, dalhe dalhe")
+        SKPaymentQueue.default().add(payment)
+    }
     
+    // MARK: - Payment methods
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        print("Called the delegate")
+        for t in transactions{
+            print("On queue", t.transactionState.rawValue)
+            if t.transactionState != .purchasing{
+                if t.transactionState == .purchased{
+                    self.onTransactionCompleted(transaction: t)
+                }
+                queue.finishTransaction(t)
+            }
+//            SKPaymentQueue.default().finishTransaction(t)
+        }
+    }
+    
+    func onTransactionCompleted(transaction: SKPaymentTransaction){
+        
+        switch transaction.payment.productIdentifier{
+        case "trintad":
+            self.upgradeSignalDeadline(add: 30)
+        default: break
+        }
+        print("COMPROU PRA BURRO")
+    }
+    
+    func upgradeSignalDeadline(add days: Int){
+        let calendar = Calendar.current.date(byAdding: .day, value: 30, to: Date())!
+        let timestamp = calendar.timeIntervalSince1970
+        
+        Database.database().reference().child("users").child(user.uid).child("signalDeadline").setValue(timestamp)
+        print("Timestamp is", timestamp, Date().timeIntervalSince1970)
+    }
+    
+    func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+        let prod = response.products
+        print("Recebi produtos" , response.products.count)
+        for p in prod{
+            print(p.localizedDescription, p.localizedTitle, p.price)
+            let offer = Offer(name: p.localizedTitle, value: p.price, product: p)
+            
+            self.offers.append(offer)
+            self.offersTableView.reloadData()
+        }
+    }
     /*
     // MARK: - Navigation
 

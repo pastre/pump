@@ -40,8 +40,10 @@ class LoginViewController: UIViewController {
         var password = self.passwordTextField.text!
         
         
-        email = "pastr68@gmail.com"
-        password = "asdfghjkl"
+        //        email = "pastr68@gmail.com"
+        //        password = "asdfghjkl"
+                email = "brunopaster@gmail.com"
+                password = "Xmicromp45"
         
         Auth.auth().signIn(withEmail: email, password: password) { (r, error) in
             

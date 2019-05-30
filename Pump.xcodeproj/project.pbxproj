@@ -30,6 +30,8 @@
 		D75AF5E1229839B6000E7C9B /* WeekTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AF5E0229839B6000E7C9B /* WeekTableViewController.swift */; };
 		D75AF5E322983C75000E7C9B /* DayTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AF5E222983C75000E7C9B /* DayTableViewController.swift */; };
 		D75AF5E622984115000E7C9B /* DayTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D75AF5E422984115000E7C9B /* DayTableViewCell.swift */; };
+		D779CCEC229F09BE00CECDD1 /* StoreObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = D779CCEB229F09BE00CECDD1 /* StoreObserver.swift */; };
+		D779CCEE229F35B900CECDD1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D779CCED229F35B900CECDD1 /* StoreKit.framework */; };
 		D782754D22962F20009862BF /* AdminMonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782754C22962F20009862BF /* AdminMonthTableViewController.swift */; };
 		D782754F22962FA3009862BF /* AddMonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782754E22962FA3009862BF /* AddMonthTableViewCell.swift */; };
 		D782755122963347009862BF /* FirebaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782755022963347009862BF /* FirebaseTableViewController.swift */; };
@@ -97,6 +99,8 @@
 		D75AF5E0229839B6000E7C9B /* WeekTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekTableViewController.swift; sourceTree = "<group>"; };
 		D75AF5E222983C75000E7C9B /* DayTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayTableViewController.swift; sourceTree = "<group>"; };
 		D75AF5E422984115000E7C9B /* DayTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayTableViewCell.swift; sourceTree = "<group>"; };
+		D779CCEB229F09BE00CECDD1 /* StoreObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreObserver.swift; sourceTree = "<group>"; };
+		D779CCED229F35B900CECDD1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D782754C22962F20009862BF /* AdminMonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMonthTableViewController.swift; sourceTree = "<group>"; };
 		D782754E22962FA3009862BF /* AddMonthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonthTableViewCell.swift; sourceTree = "<group>"; };
 		D782755022963347009862BF /* FirebaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTableViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4FFC69BB0E1710685DF50693 /* Pods_Pump.framework in Frameworks */,
+				D779CCEE229F35B900CECDD1 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -161,6 +166,7 @@
 		3FCA8BDF9EE2ABA68C6DC5A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D779CCED229F35B900CECDD1 /* StoreKit.framework */,
 				BFDE8D9C59F63B709FD4A0CA /* Pods_Pump.framework */,
 				24E52702883426696FB23E17 /* Pods_PumpTests.framework */,
 				2644D287D8F2DF1269E93402 /* Pods_PumpUITests.framework */,
@@ -193,6 +199,7 @@
 		D7050432229385E20099BE02 /* Pump */ = {
 			isa = PBXGroup;
 			children = (
+				D779CCEA229F098B00CECDD1 /* payment */,
 				D747876B229C7710001761F0 /* profile */,
 				D7EEB93E229AE48800A8286C /* auth */,
 				D7F4F01322994B4F000589F4 /* designables */,
@@ -268,6 +275,14 @@
 				D71021BB229DE52100AEFB30 /* OfferTableViewCell.swift */,
 			);
 			path = profile;
+			sourceTree = "<group>";
+		};
+		D779CCEA229F098B00CECDD1 /* payment */ = {
+			isa = PBXGroup;
+			children = (
+				D779CCEB229F09BE00CECDD1 /* StoreObserver.swift */,
+			);
+			path = payment;
 			sourceTree = "<group>";
 		};
 		D782754922962EF2009862BF /* month */ = {
@@ -409,6 +424,11 @@
 				TargetAttributes = {
 					D705042F229385E20099BE02 = {
 						CreatedOnToolsVersion = 10.2.1;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					D7050443229385E30099BE02 = {
 						CreatedOnToolsVersion = 10.2.1;
@@ -581,6 +601,7 @@
 				D705046A22943E3C0099BE02 /* Signal.swift in Sources */,
 				D75AF5E622984115000E7C9B /* DayTableViewCell.swift in Sources */,
 				D79BCE8F229CD7310099F5FD /* ProfileViewController.swift in Sources */,
+				D779CCEC229F09BE00CECDD1 /* StoreObserver.swift in Sources */,
 				D7EC6C3322949F6600C597C2 /* ChatBox.swift in Sources */,
 				D7050434229385E20099BE02 /* AppDelegate.swift in Sources */,
 				D782754F22962FA3009862BF /* AddMonthTableViewCell.swift in Sources */,
@@ -781,7 +802,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.pastre.pump;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.pastre.paymenttest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -800,7 +821,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.pastre.pump;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.pastre.paymenttest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

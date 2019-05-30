@@ -32,7 +32,8 @@ class MonthTableViewController: FirebaseTableViewController {
             (snap) in
             print("Vale", snap.value)
             let user = snap.value as! NSDictionary
-            if user["isAdmin"] as! Bool  {
+            let isAdmin = (user["isAdmin"] as! Bool)
+            if isAdmin  {
                 self.enableAdmin()
             }
 //            self.enableAdmin()

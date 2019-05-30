@@ -7,11 +7,14 @@
 //
 
 import UIKit
+import StoreKit
 
 class OfferTableViewCell: UITableViewCell {
 
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var valueLabel: UILabel!
+    
+    var offer: Offer!
     
     override func awakeFromNib() {
         super.awakeFromNib()
