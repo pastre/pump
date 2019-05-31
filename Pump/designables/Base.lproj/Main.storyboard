@@ -222,7 +222,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yeo-UN-K2F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="213" y="820"/>
+            <point key="canvasLocation" x="4" y="820"/>
         </scene>
         <!--Meses-->
         <scene sceneID="q0g-dA-B22">
@@ -536,6 +536,9 @@
                                     <constraint firstAttribute="width" secondItem="5JA-Zf-kil" secondAttribute="height" multiplier="1:1" id="aGB-Pq-deA"/>
                                 </constraints>
                                 <state key="normal" image="login"/>
+                                <connections>
+                                    <action selector="onLogin:" destination="RyJ-fx-pXS" eventType="touchUpInside" id="GAT-d2-b8z"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j0h-up-7Sv">
                                 <rect key="frame" x="10" y="822" width="394" height="30"/>
@@ -569,6 +572,7 @@
                         <outlet property="emailtTextField" destination="LPm-Qm-xK8" id="4E2-ya-iKw"/>
                         <outlet property="passwordTextField" destination="6bM-wE-T9H" id="05w-oE-X30"/>
                         <segue destination="G38-k5-bYR" kind="presentation" identifier="loginSegue" id="34e-eC-nAC"/>
+                        <segue destination="v6N-N7-kvU" kind="presentation" identifier="failedSegue" id="gAd-tj-Pmk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jTy-1H-4GF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -627,17 +631,22 @@
                                 <rect key="frame" x="188.5" y="691" width="37" height="48"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="yXV-5T-KKH">
+                                <rect key="frame" x="188.5" y="691" width="37" height="48"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="f4O-Sa-zks" firstAttribute="centerX" secondItem="0Va-7j-KKT" secondAttribute="centerX" id="05Q-kF-oOf"/>
                             <constraint firstItem="0Va-7j-KKT" firstAttribute="top" secondItem="pSk-wT-soo" secondAttribute="bottom" multiplier="1.07" id="4oO-cl-KyF"/>
                             <constraint firstItem="pSk-wT-soo" firstAttribute="height" secondItem="vu3-na-Zh3" secondAttribute="height" id="50h-I4-sKg"/>
+                            <constraint firstItem="yXV-5T-KKH" firstAttribute="width" secondItem="cPK-oP-zLv" secondAttribute="width" id="6Bg-7g-1s5"/>
                             <constraint firstItem="TZc-cf-GaY" firstAttribute="top" secondItem="cPK-oP-zLv" secondAttribute="bottom" constant="10" id="6rB-al-8pi"/>
                             <constraint firstItem="vu3-na-Zh3" firstAttribute="width" secondItem="f4O-Sa-zks" secondAttribute="width" id="7GJ-MX-chX"/>
                             <constraint firstItem="TZc-cf-GaY" firstAttribute="top" secondItem="vu3-na-Zh3" secondAttribute="bottom" multiplier="1.1" id="EPa-pq-LwM"/>
                             <constraint firstItem="pSk-wT-soo" firstAttribute="height" secondItem="f4O-Sa-zks" secondAttribute="height" id="ER2-xh-NeS"/>
                             <constraint firstItem="TZc-cf-GaY" firstAttribute="centerX" secondItem="7vq-XW-qx5" secondAttribute="centerX" id="Ew2-Ln-MVF"/>
+                            <constraint firstItem="yXV-5T-KKH" firstAttribute="centerX" secondItem="cPK-oP-zLv" secondAttribute="centerX" id="F2y-VD-s08"/>
                             <constraint firstItem="0Va-7j-KKT" firstAttribute="centerX" secondItem="pSk-wT-soo" secondAttribute="centerX" id="GaZ-2P-tOw"/>
                             <constraint firstItem="TZc-cf-GaY" firstAttribute="width" secondItem="DCS-Ju-2Hr" secondAttribute="width" multiplier="0.2" id="Jaa-Cd-bCz"/>
                             <constraint firstItem="vu3-na-Zh3" firstAttribute="top" secondItem="f4O-Sa-zks" secondAttribute="bottom" multiplier="1.07" id="NrV-ZM-Hhb"/>
@@ -653,6 +662,8 @@
                             <constraint firstItem="pSk-wT-soo" firstAttribute="width" secondItem="DCS-Ju-2Hr" secondAttribute="width" multiplier="0.6" id="mjw-bR-vVk"/>
                             <constraint firstItem="pSk-wT-soo" firstAttribute="centerX" secondItem="7vq-XW-qx5" secondAttribute="centerX" id="o2Z-RC-J2F"/>
                             <constraint firstItem="OmY-3b-RgM" firstAttribute="top" secondItem="7vq-XW-qx5" secondAttribute="top" multiplier="1.4" id="pSU-gR-zOW"/>
+                            <constraint firstItem="yXV-5T-KKH" firstAttribute="height" secondItem="cPK-oP-zLv" secondAttribute="height" id="rJO-ku-k9V"/>
+                            <constraint firstItem="yXV-5T-KKH" firstAttribute="centerY" secondItem="cPK-oP-zLv" secondAttribute="centerY" id="rUx-1q-oJk"/>
                             <constraint firstItem="f4O-Sa-zks" firstAttribute="top" secondItem="0Va-7j-KKT" secondAttribute="bottom" multiplier="1.07" id="vn1-6R-7j4"/>
                             <constraint firstItem="pSk-wT-soo" firstAttribute="top" secondItem="OmY-3b-RgM" secondAttribute="bottom" multiplier="1.06" id="wbB-Ct-msG"/>
                         </constraints>
@@ -664,12 +675,14 @@
                         <outlet property="nameTextField" destination="pSk-wT-soo" id="MNY-kg-3Qc"/>
                         <outlet property="passwordTextField" destination="f4O-Sa-zks" id="0aT-Ba-xXm"/>
                         <outlet property="phoneTextField" destination="vu3-na-Zh3" id="BjX-YV-z9k"/>
+                        <outlet property="successImage" destination="yXV-5T-KKH" id="Zsr-qF-tfd"/>
                         <segue destination="v6N-N7-kvU" kind="presentation" identifier="invalidForm" id="HIc-EP-XCI"/>
+                        <segue destination="G38-k5-bYR" kind="presentation" identifier="success" id="nuE-Dv-bCE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1xO-ZS-ZMa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1578.2608695652175" y="1599.7767857142856"/>
+            <point key="canvasLocation" x="-810" y="1600"/>
         </scene>
         <!--Warning View Controller-->
         <scene sceneID="fk3-Zk-Ohn">
@@ -747,12 +760,13 @@
                         <viewLayoutGuide key="safeArea" id="nwI-rf-yWZ"/>
                     </view>
                     <connections>
+                        <outlet property="scalarView" destination="L95-kq-qgy" id="CYO-uZ-98N"/>
                         <outlet property="warningLabel" destination="ToL-HP-Ls8" id="KTq-ie-PBI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZQ-nh-aOy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-752.17391304347836" y="1599.7767857142856"/>
+            <point key="canvasLocation" x="81" y="1600"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="yU7-7I-SaG">
@@ -1184,6 +1198,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="check" width="48" height="48"/>
         <image name="criarConta" width="121" height="123"/>
         <image name="login" width="136" height="139"/>
         <image name="logo" width="297" height="297"/>
@@ -1192,4 +1207,8 @@
         <image name="sinais" width="136" height="139"/>
         <image name="warning" width="307" height="307"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gAd-tj-Pmk"/>
+        <segue reference="34e-eC-nAC"/>
+    </inferredMetricsTieBreakers>
 </document>

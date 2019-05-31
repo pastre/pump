@@ -19,6 +19,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var successImage: UIImageView!
     
 //    let toasterView: UIView = {
 //        let view = UIView()
@@ -30,7 +31,11 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.successImage.isHidden = true
         
+        for vc in self.navigationController!.viewControllers{
+            print("VC  is", vc)
+        }
         // Do any additional setup after loading the view.
     }
     
@@ -63,6 +68,8 @@ class SignUpViewController: UIViewController {
                             self.performSegue(withIdentifier: "invalidForm", sender: "O email está errado")
                         case .userNotFound:
                             self.performSegue(withIdentifier: "invalidForm", sender: "Usuário não encontrado")
+                        case .emailAlreadyInUse:
+                            self.performSegue(withIdentifier: "invalidForm", sender: "Esse email já está sendo usado")
                         case .wrongPassword:
                             self.performSegue(withIdentifier: "invalidForm", sender: "Senha inválida")
                         case .weakPassword:
@@ -87,11 +94,9 @@ class SignUpViewController: UIViewController {
                     let uid = result.user.uid
                     Database.database().reference().child("users/\(uid)").setValue(["phone": phone, "isAdmin": false, "signalDeadline": Date().timeIntervalSince1970])
                     self.loadingActivityIndicator.stopAnimating()
-                    self.navigationController?.popViewController(animated: true)
-                    let loginViewController = self.navigationController?.viewControllers.forEach({ (vc) in
-                        if vc is LoginViewController{
-                            self.navigationController?.pushViewController(vc, animated: true)
-                        }
+                    self.successImage.isHidden = false
+                    Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { (_) in
+                        self.performSegue(withIdentifier: "success", sender: nil)
                     })
                 }
             })

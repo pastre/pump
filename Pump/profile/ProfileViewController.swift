@@ -74,11 +74,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             let asDict = snap.value as! NSDictionary
             self.phoneLabel.text = (asDict["phone"] as! String)
             let timestamp = Date(timeIntervalSince1970: asDict["signalDeadline"] as! Double)
-            let formatter = DateFormatter()
-            formatter.locale = Locale(identifier: "pt_BR")
-            formatter.setLocalizedDateFormatFromTemplate("dd/MMM/yyyy")
-//            DateFor
-            self.validDateLabel.text = "Recebendo sinais até: \n\(formatter.string(from: timestamp))"
+            if timestamp < Date(){
+                self.validDateLabel.text = "Compre mais dias para receber sinais"
+            } else {
+                let formatter = DateFormatter()
+                formatter.locale = Locale(identifier: "pt_BR")
+                formatter.setLocalizedDateFormatFromTemplate("dd/MMM/yyyy")
+    //            DateFor
+                self.validDateLabel.text = "Recebendo sinais até: \n\(formatter.string(from: timestamp))"
+            }
         }
     }
     

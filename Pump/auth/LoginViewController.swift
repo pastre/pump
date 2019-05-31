@@ -23,47 +23,29 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func onLogin(_ sender: Any) {
-        
-//        if !self.emailtTextField.hasText {
-//            print("Handling email failure")
-//            return
-//            
-//        }
-//        if !self.passwordTextField.hasText {
-//            print("Handling pwd failure")
-//            return
-//            
-//        }
-//        
-        
         var email = self.emailtTextField.text!
         var password = self.passwordTextField.text!
         
-        
-        //        email = "pastr68@gmail.com"
-        //        password = "asdfghjkl"
-                email = "brunopaster@gmail.com"
-                password = "Xmicromp45"
+//        email = "pastr68@gmail.com"
+//        password = "asdfghjkl"
+//                email = "brunopaster@gmail.com"
+//                password = "Xmicromp45"
         
         Auth.auth().signIn(withEmail: email, password: password) { (r, error) in
             
             if error != nil {
-                
                 if let errCode = AuthErrorCode(rawValue: error!._code) {
-                    
                     switch errCode {
-                        
-                    case .invalidEmail:
-                        print("invalid email")
-                    case .userNotFound:
-                        print("Nao achei esse viado")
-                    case .wrongPassword:
-                        print("Deu ruim na senha")
-                    default:
-                        print("Other error!")
+                        case .invalidEmail:
+                            self.performSegue(withIdentifier: "failedSegue", sender: "Email inválido")
+                        case .userNotFound:
+                            self.performSegue(withIdentifier: "failedSegue", sender: "Este usuário não existe")
+                        case .wrongPassword:
+                            self.performSegue(withIdentifier: "failedSegue", sender: "Usuário ou senha incorreto")
+                        default:
+                            print("Other error!", errCode, error)
                     }
                 }
-                
             } else {
                 print("Login deu boa1")
                 self.performSegue(withIdentifier: "loginSegue", sender: sender)
@@ -73,14 +55,17 @@ class LoginViewController: UIViewController {
         
     }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "failedSegue"{
+            let dest = segue.destination as! WarningViewController
+            dest.message = sender as! String
+        }
     }
-    */
+ 
 
 }
