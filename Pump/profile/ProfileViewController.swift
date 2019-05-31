@@ -22,9 +22,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var phoneLabel: UILabel!
     
     @IBOutlet weak var offersTableView: UITableView!
-    
     @IBOutlet weak var validDateLabel: UILabel!
 
+    @IBOutlet weak var imageActivityIndicator: UIActivityIndicatorView!
+    
     lazy var user = Auth.auth().currentUser!
     
     var offers: [Offer]!
@@ -34,20 +35,16 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        Auth.auth().signIn(withEmail: "aaa@aaa.com", password: "aaaaaaaaaa") { (_, e) in
+        self.offers = [Offer]()
         
-            self.offers = [Offer]()
-            
-            self.offersTableView.dataSource = self
-            self.offersTableView.delegate = self
-            SKPaymentQueue.default().add(self)
-            
-            self.setupName()
-            self.setupPhoneListener()
-            
-            self.setupProductRequest()
-            
-//        }
+        self.offersTableView.dataSource = self
+        self.offersTableView.delegate = self
+        SKPaymentQueue.default().add(self)
+        
+        self.setupName()
+        self.setupPhoneListener()
+        self.setupProfilePic()
+        self.setupProductRequest()
         
         let queue = SKPaymentQueue.default();
         var tr = queue.transactions.count
@@ -88,9 +85,21 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     func setupName() {
         self.emailLabel.text = self.user.email
         self.nameLabel.text = self.user.displayName
+        
 //        UIImage(cgImage: <#T##CGImage#>)
         // TODO: Carregar uma imagem e editar ela
 //        self.userImageView.image = self.user.ph
+    }
+    
+    func setupProfilePic(){
+        self.imageActivityIndicator.startAnimating()
+        guard let url = self.user.photoURL else{
+            self.userImageView.image = UIImage(named: "defaultUser")
+            self.imageActivityIndicator.stopAnimating()
+            return
+        }
+        
+//        self.userImageView.image = UIImage(con)
     }
     
     func onOfferAdded(snapshot: DataSnapshot){
