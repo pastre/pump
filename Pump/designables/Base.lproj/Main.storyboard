@@ -504,10 +504,10 @@
             </objects>
             <point key="canvasLocation" x="2586" y="820"/>
         </scene>
-        <!--Login View Controller-->
+        <!--Login-->
         <scene sceneID="qrZ-7U-XYj">
             <objects>
-                <viewController id="RyJ-fx-pXS" customClass="LoginViewController" customModule="Pump" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Login" id="RyJ-fx-pXS" customClass="LoginViewController" customModule="Pump" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="few-D9-e1p">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -528,7 +528,7 @@
                                 <rect key="frame" x="83" y="512" width="248" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="password"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5JA-Zf-kil">
                                 <rect key="frame" x="140" y="557" width="134" height="134.5"/>
@@ -1142,10 +1142,10 @@
             </objects>
             <point key="canvasLocation" x="979.71014492753636" y="1599.7767857142856"/>
         </scene>
-        <!--View Controller-->
+        <!--Main View Controller-->
         <scene sceneID="WrR-rj-qPj">
             <objects>
-                <viewController id="rAB-Lq-Ksh" sceneMemberID="viewController">
+                <viewController id="rAB-Lq-Ksh" customClass="MainViewController" customModule="Pump" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gos-v2-Xdx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1191,6 +1191,11 @@
                         <viewLayoutGuide key="safeArea" id="44x-oa-clE"/>
                     </view>
                     <navigationItem key="navigationItem" id="L7h-wd-OyU"/>
+                    <connections>
+                        <outlet property="createAccountView" destination="311-px-Y7s" id="UL7-6d-q6V"/>
+                        <outlet property="loginView" destination="FF2-q9-0dt" id="gLl-CO-igc"/>
+                        <outlet property="logoView" destination="CLQ-9n-uqp" id="7x3-HS-o7G"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TJ8-Fm-xCq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

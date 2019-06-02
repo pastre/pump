@@ -10,7 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 
-class SignUpViewController: UIViewController {
+class SignUpViewController: TextFieldViewController {
 
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
@@ -33,9 +33,12 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         self.successImage.isHidden = true
         
-        for vc in self.navigationController!.viewControllers{
-            print("VC  is", vc)
-        }
+        self.nameTextField.delegate = self
+        self.phoneTextField.delegate = self
+        
+        self.emailTextField.delegate = self
+        self.passwordTextField.delegate = self
+        
         // Do any additional setup after loading the view.
     }
     

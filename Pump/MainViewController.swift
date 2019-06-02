@@ -10,11 +10,9 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    @IBOutlet weak var logoImageView: UIImageView!
-    
-    @IBOutlet weak var profileButton: UIButton!
-    @IBOutlet weak var relatorioButton: UIButton!
-    @IBOutlet weak var sinaisButton: UIButton!
+    @IBOutlet weak var logoView: UIImageView!
+    @IBOutlet weak var createAccountView: UIButton!
+    @IBOutlet weak var loginView: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,9 +22,9 @@ class MainViewController: UIViewController {
     
     func drawLines(){
         
-        self.addLine(fromPoint: self.logoImageView.center, toPoint:  self.profileButton.center)
-        self.addLine(fromPoint: self.logoImageView.center, toPoint:  self.relatorioButton.center)
-        self.addLine(fromPoint: self.logoImageView.center, toPoint:  self.sinaisButton.center)
+        self.addLine(fromPoint: self.logoView.center, toPoint:  self.createAccountView.center)
+        self.addLine(fromPoint: self.logoView.center, toPoint:  self.loginView.center)
+        
         
     }
     
@@ -40,7 +38,7 @@ class MainViewController: UIViewController {
         line.lineWidth = 1
         line.lineJoin = CAShapeLayerLineJoin.round
 //        self.view.layer.addSublayer(line)
-        self.view.layer.insertSublayer(line, below: self.logoImageView.layer)
+        self.view.layer.insertSublayer(line, below: self.logoView.layer)
 //        self.view.layer.below
     }
     

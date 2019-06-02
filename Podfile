@@ -10,6 +10,7 @@ target 'Pump' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  pod 'Firebase/Messaging'
 
   target 'PumpTests' do
     inherit! :search_paths
