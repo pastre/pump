@@ -28,6 +28,7 @@ class AddMonthTableViewCell: FirebaseTableViewCell, UITextFieldDelegate {
         
         // Configure the view for the selected state
     }
+    
     func setAdd(){
         self.doneButton.setImage(UIImage(named: "add"), for: .normal)
         self.doneButton.addTarget(self, action: #selector(self.onAdd(_:)), for: .touchDown)
@@ -35,7 +36,7 @@ class AddMonthTableViewCell: FirebaseTableViewCell, UITextFieldDelegate {
     
     
     func setEdit(){
-        self.doneButton.setImage(UIImage(named: "check"), for: .normal)
+        self.doneButton.setImage(UIImage(named: "smallCheck"), for: .normal)
         self.doneButton.addTarget(self, action: #selector(self.onEdit(_:)), for: .touchDown)
     }
     

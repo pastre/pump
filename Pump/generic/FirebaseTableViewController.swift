@@ -17,8 +17,11 @@ class FirebaseTableViewController: UITableViewController {
     var ref: DatabaseReference!
     var dataToDisplay: [BaseFirebaseRef]!
     var segueId: String!
+    var isAdmin: Bool!
+    
     
     override func viewDidLoad() {
+        self.isAdmin = true
         super.viewDidLoad()
         self.dataToDisplay = [BaseFirebaseRef]()
         
@@ -102,12 +105,13 @@ class FirebaseTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
+        
         let action = UIContextualAction(style: .destructive, title: "Delete") { (action, view, done) in
             let cell =  self.tableView.cellForRow(at: indexPath) as! FirebaseTableViewCell
             self.delete(at: cell.path)
             done(true)
         }
-        let actions = indexPath.item == 0 ? [] : [action]
+        let actions = indexPath.item == 0 ? [] : self.isAdmin ? [action] : []
         let ret = UISwipeActionsConfiguration(actions: actions)
         
         return ret

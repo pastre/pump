@@ -12,6 +12,8 @@ import FirebaseDatabase
 
 class SignUpViewController: TextFieldViewController {
 
+    @IBOutlet weak var logoImageView: UIImageView!
+    
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
     
@@ -20,6 +22,7 @@ class SignUpViewController: TextFieldViewController {
     
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var successImage: UIImageView!
+    @IBOutlet weak var contentView: UIView!
     
 //    let toasterView: UIView = {
 //        let view = UIView()
@@ -30,6 +33,8 @@ class SignUpViewController: TextFieldViewController {
     
     
     override func viewDidLoad() {
+        self.content = self.contentView
+        self.hidingView = self.logoImageView
         super.viewDidLoad()
         self.successImage.isHidden = true
         

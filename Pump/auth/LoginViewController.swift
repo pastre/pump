@@ -15,9 +15,16 @@ class LoginViewController: TextFieldViewController {
 
     @IBOutlet weak var emailtTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var contentVioew: UIView!
+    @IBOutlet weak var logoImageView: UIImageView!
+    @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     
     override func viewDidLoad() {
+        self.hidingView = self.logoImageView
+        self.content = self.contentVioew
         super.viewDidLoad()
+        self.emailtTextField.delegate = self
+        self.passwordTextField.delegate = self
 
         // Do any additional setup after loading the view.
     }
@@ -28,9 +35,9 @@ class LoginViewController: TextFieldViewController {
         
 //        email = "pastr68@gmail.com"
 //        password = "asdfghjkl"
-//                email = "brunopaster@gmail.com"
-//                password = "Xmicromp45"
-        
+                email = "brunopaster@gmail.com"
+                password = "Xmicromp45"
+        self.loadingActivityIndicator.startAnimating()
         Auth.auth().signIn(withEmail: email, password: password) { (r, error) in
             
             if error != nil {
@@ -50,6 +57,7 @@ class LoginViewController: TextFieldViewController {
                 print("Login deu boa1")
                 self.performSegue(withIdentifier: "loginSegue", sender: sender)
             }
+            self.loadingActivityIndicator.stopAnimating()
             
         }
         

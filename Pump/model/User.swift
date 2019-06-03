@@ -9,5 +9,9 @@
 import Foundation
 
 class User {
+    static let instance = User()
     
+    var isAdmin: Bool?
+    
+    private init(){ }
 }

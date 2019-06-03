@@ -18,6 +18,7 @@ class WeekTableViewController: FirebaseTableViewController{
         self.segueId = super.noSegue
         self.ref = Database.database().reference().child("/months/\(month.key!)/weeks")
         super.viewDidLoad()
+        self.isAdmin = false
     }
 
     

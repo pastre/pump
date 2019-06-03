@@ -17,6 +17,7 @@ class MonthTableViewController: FirebaseTableViewController {
         self.segueId = super.noSegue
         self.ref = Database.database().reference().child("/months")
         super.viewDidLoad()
+        self.isAdmin = false
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         

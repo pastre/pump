@@ -15,6 +15,8 @@ import FirebaseAuth
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SKPaymentTransactionObserver, SKProductsRequestDelegate{
 
     
+    let products = ["Trintad": 30, "Sessentad": 60, "Noventad": 90]
+    
     @IBOutlet weak var userImageView: UIImageView!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -25,13 +27,14 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var validDateLabel: UILabel!
 
     @IBOutlet weak var imageActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var buyingActivityIndicator: UIActivityIndicatorView!
     
     lazy var user = Auth.auth().currentUser!
     
     var offers: [Offer]!
-    
+    var validThrough: Date!
    
-    
+    // MARK: - Setup methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,9 +45,10 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         SKPaymentQueue.default().add(self)
         
         self.setupName()
-        self.setupPhoneListener()
+        self.setupUser()
         self.setupProfilePic()
         self.setupProductRequest()
+        self.setupLogoutButton()
         
         let queue = SKPaymentQueue.default();
         var tr = queue.transactions.count
@@ -62,18 +66,37 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         SKPaymentQueue.default().remove(self)
     }
     
+    func setupLogoutButton(){
+        let item = UIBarButtonItem(image: UIImage(named: "signOut"), style: .plain, target: self, action:  #selector(self.onLogout(_:)))
+        self.navigationItem.rightBarButtonItem = item
+    }
+    
+    @objc func onLogout(_ action: Any?){
+        self.buyingActivityIndicator.startAnimating()
+        do {
+            try Auth.auth().signOut()
+//            self.navigationController?.popToRootViewController(animated: true)
+            self.view.window!.rootViewController!.dismiss(animated: true, completion: nil)
+            self.buyingActivityIndicator.stopAnimating()
+        } catch let error {
+            print("Error on logout", error)
+            self.buyingActivityIndicator.stopAnimating()
+        }
+    }
+    
     func setupProductRequest(){
-        let request = SKProductsRequest(productIdentifiers: ["trintad"])
+        let request = SKProductsRequest(productIdentifiers: Set<String>(self.products.keys))
         request.delegate = self
         request.start()
         
     }
     
-    func setupPhoneListener(){
+    func setupUser(){
         Database.database().reference().child("users").child(user.uid).observe(.value) { (snap) in
             let asDict = snap.value as! NSDictionary
             self.phoneLabel.text = (asDict["phone"] as! String)
             let timestamp = Date(timeIntervalSince1970: asDict["signalDeadline"] as! Double)
+            self.validThrough = timestamp
             if timestamp < Date(){
                 self.validDateLabel.text = "Compre mais dias para receber sinais"
             } else {
@@ -97,13 +120,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func setupProfilePic(){
         self.imageActivityIndicator.startAnimating()
-        guard let url = self.user.photoURL else{
+        guard self.user.photoURL != nil else{
             self.userImageView.image = UIImage(named: "defaultUser")
             self.imageActivityIndicator.stopAnimating()
             return
         }
         
-//        self.userImageView.image = UIImage(con)
     }
     
     func onOfferAdded(snapshot: DataSnapshot){
@@ -136,6 +158,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if self.buyingActivityIndicator.isAnimating { return }
+        
         let row = tableView.cellForRow(at: indexPath) as! OfferTableViewCell
         let product = row.offer.product!
         
@@ -147,6 +171,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     // MARK: - Payment methods
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         print("Called the delegate")
+        self.buyingActivityIndicator.startAnimating()
         for t in transactions{
             print("On queue", t.transactionState.rawValue)
             if t.transactionState != .purchasing{
@@ -160,20 +185,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func onTransactionCompleted(transaction: SKPaymentTransaction){
-        
-        switch transaction.payment.productIdentifier{
-        case "trintad":
-            self.upgradeSignalDeadline(add: 30)
-        default: break
-        }
+        let pid =  transaction.payment.productIdentifier
+        self.upgradeSignalDeadline(add: products[pid]!)
         print("COMPROU PRA BURRO")
     }
     
     func upgradeSignalDeadline(add days: Int){
-        let calendar = Calendar.current.date(byAdding: .day, value: 30, to: Date())!
+        
+        let calendar = Calendar.current.date(byAdding: .day, value: days, to: self.validThrough)!
         let timestamp = calendar.timeIntervalSince1970
         
         Database.database().reference().child("users").child(user.uid).child("signalDeadline").setValue(timestamp)
+        self.buyingActivityIndicator.stopAnimating()
         print("Timestamp is", timestamp, Date().timeIntervalSince1970)
     }
     

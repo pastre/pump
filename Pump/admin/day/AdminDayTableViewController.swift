@@ -37,7 +37,7 @@ class AdminDayTableViewController: FirebaseTableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.item == 0{
-            let cell = tableView.dequeueReusableCell(withIdentifier: "addDay", for: indexPath) as! AddDAYTableViewCell
+            let cell = tableView.dequeueReusableCell(withIdentifier: "addDay", for: indexPath) as! AddDayTableViewCell
             
             cell.path = "/months/\(month.key!)/weeks/\(week.key!)/days"
             cell.setAdd()
@@ -45,7 +45,7 @@ class AdminDayTableViewController: FirebaseTableViewController {
             return cell
         }
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "addDay", for: indexPath) as! AddDAYTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "addDay", for: indexPath) as! AddDayTableViewCell
         let data = self.dataToDisplay[indexPath.item - 1] as! DayRef
         
         cell.dayTextField.text = data.name

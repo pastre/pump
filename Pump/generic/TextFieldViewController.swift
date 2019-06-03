@@ -20,6 +20,7 @@ class TextFieldViewController: UIViewController, UITextFieldDelegate {
     
     var content: UIView!
     var controller: UITableViewController!
+    var hidingView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,10 +31,17 @@ class TextFieldViewController: UIViewController, UITextFieldDelegate {
     
     func moveKeyboardUp(){
         self.content.transform = self.content.transform.translatedBy(x: 0, y: -self.view.frame.width / 2)
+        UIView.animate(withDuration: 0.2) {
+            self.hidingView?.alpha = 0
+        }
     }
     
     func moveKeyboardDown(){
         self.content.transform = .identity
+        
+        UIView.animate(withDuration: 0.2) {
+            self.hidingView?.alpha = 1
+        }
     }
     
     func hideKeyboardWhenTappedAround() {

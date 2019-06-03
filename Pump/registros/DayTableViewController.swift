@@ -19,6 +19,7 @@ class DayTableViewController: FirebaseTableViewController {
         self.segueId = super.noSegue
         self.ref = Database.database().reference().child("/months/\(month.key!)/weeks/\(week.key!)/days")
         super.viewDidLoad()
+        self.isAdmin = false
     }
     
     override func generateData(with snap: DataSnapshot) -> BaseFirebaseRef {

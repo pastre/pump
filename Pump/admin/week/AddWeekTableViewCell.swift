@@ -38,7 +38,7 @@ class AddWeekTableViewCell: FirebaseTableViewCell, UITextFieldDelegate {
     
     
     func setEdit(){
-        self.doneButton.setImage(UIImage(named: "check"), for: .normal)
+        self.doneButton.setImage(UIImage(named: "smallCheck"), for: .normal)
         self.doneButton.addTarget(self, action: #selector(self.onEdit(_:)), for: .touchDown)
     }
 
