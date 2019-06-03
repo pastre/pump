@@ -67,7 +67,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     func setupLogoutButton(){
-        let item = UIBarButtonItem(image: UIImage(named: "signOut"), style: .plain, target: self, action:  #selector(self.onLogout(_:)))
+        
+        let item = UIBarButtonItem(title: "Sair", style: .plain, target: self, action:  #selector(self.onLogout(_:)))
         self.navigationItem.rightBarButtonItem = item
     }
     

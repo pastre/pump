@@ -937,9 +937,9 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CZX-bm-phA">
                                 <rect key="frame" x="284.5" y="597" width="109.5" height="109.5"/>
-                                <state key="normal" image="sinais"/>
+                                <state key="normal" image="disabledSignal"/>
                                 <connections>
-                                    <segue destination="Gjs-lr-gtP" kind="show" id="PSh-Vs-MlN"/>
+                                    <action selector="onSignals:" destination="rSF-Da-Hgf" eventType="touchUpInside" id="B6t-6j-FZj"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e4m-aH-1ex">
@@ -949,15 +949,24 @@
                                     <segue destination="ODH-7y-uCM" kind="show" id="gMB-VC-MYh"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vá ao perfil para comprar  e receber sinais" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Av-r0-Wcd">
+                                <rect key="frame" x="272" y="716.5" width="122" height="61"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.57255309820175171" green="0.57254195213317871" blue="0.57254946231842041" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="e4m-aH-1ex" firstAttribute="top" secondItem="Fxg-UR-Zam" secondAttribute="bottom" constant="26" id="6hQ-c6-9xa"/>
+                            <constraint firstItem="6Av-r0-Wcd" firstAttribute="trailing" secondItem="CZX-bm-phA" secondAttribute="trailing" id="9m4-ZT-Ydn"/>
                             <constraint firstItem="CZX-bm-phA" firstAttribute="centerY" secondItem="Fxg-UR-Zam" secondAttribute="centerY" id="AlH-iH-St5"/>
+                            <constraint firstItem="6Av-r0-Wcd" firstAttribute="leading" secondItem="e4m-aH-1ex" secondAttribute="trailing" constant="10" id="DBe-ir-8hU"/>
                             <constraint firstItem="1aE-FP-nzg" firstAttribute="width" secondItem="M4h-D3-yO7" secondAttribute="width" multiplier="0.8" id="GK2-VZ-LBy"/>
                             <constraint firstItem="1aE-FP-nzg" firstAttribute="centerX" secondItem="M4h-D3-yO7" secondAttribute="centerX" id="KmN-Kr-lSp"/>
                             <constraint firstItem="VHw-H8-zDD" firstAttribute="trailing" secondItem="CZX-bm-phA" secondAttribute="trailing" constant="20" id="MQn-Xr-ZhL"/>
                             <constraint firstItem="Fxg-UR-Zam" firstAttribute="width" secondItem="e4m-aH-1ex" secondAttribute="width" id="QiO-MA-lEI"/>
+                            <constraint firstItem="6Av-r0-Wcd" firstAttribute="top" secondItem="CZX-bm-phA" secondAttribute="bottom" constant="10" id="RMz-OU-9sg"/>
                             <constraint firstItem="Fxg-UR-Zam" firstAttribute="leading" secondItem="VHw-H8-zDD" secondAttribute="leading" constant="20" id="T7a-9p-0Ar"/>
                             <constraint firstItem="1aE-FP-nzg" firstAttribute="top" secondItem="VHw-H8-zDD" secondAttribute="top" constant="40" id="Wlm-rh-LAS"/>
                             <constraint firstItem="e4m-aH-1ex" firstAttribute="centerX" secondItem="VHw-H8-zDD" secondAttribute="centerX" id="eM0-Nk-aPh"/>
@@ -975,11 +984,13 @@
                         <outlet property="profileButton" destination="Fxg-UR-Zam" id="Wr1-x4-dH4"/>
                         <outlet property="registroButton" destination="e4m-aH-1ex" id="Thf-zn-ZQ0"/>
                         <outlet property="signalButton" destination="CZX-bm-phA" id="gGc-hJ-HcZ"/>
+                        <outlet property="signalWarningLabel" destination="6Av-r0-Wcd" id="pn6-C8-ZWn"/>
+                        <segue destination="Gjs-lr-gtP" kind="show" identifier="signalSegue" id="bWS-EA-bls"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t4f-XW-fCm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="980" y="820"/>
+            <point key="canvasLocation" x="979.71014492753636" y="819.64285714285711"/>
         </scene>
         <!--Perfil-->
         <scene sceneID="xZ7-NA-oZ1">
@@ -1246,11 +1257,11 @@
     <resources>
         <image name="check" width="48" height="48"/>
         <image name="criarConta" width="121" height="123"/>
+        <image name="disabledSignal" width="136" height="139"/>
         <image name="login" width="136" height="139"/>
         <image name="logo" width="297" height="297"/>
         <image name="perfil" width="136" height="139"/>
         <image name="relatorio" width="121" height="123"/>
-        <image name="sinais" width="136" height="139"/>
         <image name="warning" width="307" height="307"/>
     </resources>
     <inferredMetricsTieBreakers>
