@@ -35,8 +35,8 @@ class LoginViewController: TextFieldViewController {
         
 //        email = "pastr68@gmail.com"
 //        password = "asdfghjkl"
-                email = "brunopaster@gmail.com"
-                password = "Xmicromp45"
+//                email = "brunopaster@gmail.com"
+//                password = "Xmicromp45"
         self.loadingActivityIndicator.startAnimating()
         Auth.auth().signIn(withEmail: email, password: password) { (r, error) in
             

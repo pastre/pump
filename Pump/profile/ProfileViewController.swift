@@ -99,7 +99,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             let timestamp = Date(timeIntervalSince1970: asDict["signalDeadline"] as! Double)
             self.validThrough = timestamp
             if timestamp < Date(){
-                self.validDateLabel.text = "Compre mais dias para receber sinais"
+                self.validDateLabel.text = "Para receber sinais, compre algum pacote"
             } else {
                 let formatter = DateFormatter()
                 formatter.locale = Locale(identifier: "pt_BR")

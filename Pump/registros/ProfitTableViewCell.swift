@@ -40,6 +40,10 @@ class ProfitTableViewCell: UITableViewCell {
         
     }
     
+    func decideColor(){
+        
+    }
+    
     func setOpen(){
         
         self.profit.textColor = Constants.OPEN_GREY

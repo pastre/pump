@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseMessaging
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
@@ -19,6 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
+        
+        UNUserNotificationCenter.current().delegate = self
+        Messaging.messaging().delegate = self
+        Messaging.messaging().isAutoInitEnabled = true
+//        Messaging.messaging().shouldEstablishDirectChannel = true
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
             UNUserNotificationCenter.current().delegate = self
@@ -33,10 +39,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             application.registerUserNotificationSettings(settings)
         }
         
-        Messaging.messaging().delegate = self
         application.registerForRemoteNotifications()
-        Messaging.messaging().isAutoInitEnabled = true
-        print("Configurei")
+        
+        
+        print("Configurei", Messaging.messaging().apnsToken, Messaging.messaging().isDirectChannelEstablished, application.isRegisteredForRemoteNotifications)
         
         return true
     }
@@ -63,6 +69,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
+    func application(_ application: UIApplication, willFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        UNUserNotificationCenter.current().delegate = self
+        Messaging.messaging().delegate = self
+        return true
+    }
+    
+    func applicationDidFinishLaunching(_ application: UIApplication) {
+
+        UNUserNotificationCenter.current().delegate = self
+        Messaging.messaging().delegate = self
+    }
+    
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         print("Firebase registration token: \(fcmToken)")
         
@@ -72,6 +90,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print("Recebi a mensagem!!!!!!!!!!!!!!!!!", remoteMessage.appData)
+    }
 
 }
 

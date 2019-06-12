@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>489963339538-ke86hvdurbbkg8mi5qd8vlqgdo3sb0gn.apps.googleusercontent.com</string>
+	<string>587171467985-7qc7p28d5f612qjffkoo6t38dkpqsjv0.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.489963339538-ke86hvdurbbkg8mi5qd8vlqgdo3sb0gn</string>
+	<string>com.googleusercontent.apps.587171467985-7qc7p28d5f612qjffkoo6t38dkpqsjv0</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCl5q8z9L6w808T3iy6dJK9gba32fgNiyY</string>
+	<string>AIzaSyB51HRQI5o5XmJDc92FA_hphl1NxbC9Hqs</string>
 	<key>GCM_SENDER_ID</key>
-	<string>489963339538</string>
+	<string>587171467985</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>io.github.pastre.pump</string>
+	<string>com.pumptradesolutions.pump</string>
 	<key>PROJECT_ID</key>
-	<string>pump-1669d</string>
+	<string>pump-6a3eb</string>
 	<key>STORAGE_BUCKET</key>
-	<string>pump-1669d.appspot.com</string>
+	<string>pump-6a3eb.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:489963339538:ios:e2c7bf2e7d7205dc</string>
+	<string>1:587171467985:ios:bbc65748a54dff83</string>
 	<key>DATABASE_URL</key>
-	<string>https://pump-1669d.firebaseio.com</string>
+	<string>https://pump-6a3eb.firebaseio.com</string>
 </dict>
 </plist>
