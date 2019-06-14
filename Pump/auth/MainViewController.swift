@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import FirebaseDatabase
+import FirebaseMessaging
+import FirebaseAuth
 
 class MainViewController: UIViewController {
 
@@ -18,14 +21,27 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.drawLines()
+//        self.updateMessagingKey()
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated);
+        super.viewWillDisappear(animated)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
+    func updateMessagingKey(){
+        let user = Auth.auth().currentUser!
+        let ref = Database.database().reference().child("users").child(user.uid).child("notificationKey")
+        ref.setValue(Messaging.messaging().fcmToken)
     }
     
     func drawLines(){
-        
         self.addLine(fromPoint: self.logoView.center, toPoint:  self.createAccountView.center)
         self.addLine(fromPoint: self.logoView.center, toPoint:  self.loginView.center)
-        
-        
     }
     
     func addLine(fromPoint start: CGPoint, toPoint end:CGPoint) {
@@ -37,12 +53,10 @@ class MainViewController: UIViewController {
         line.strokeColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
         line.lineWidth = 1
         line.lineJoin = CAShapeLayerLineJoin.round
-//        self.view.layer.addSublayer(line)
         self.view.layer.insertSublayer(line, below: self.logoView.layer)
-//        self.view.layer.below
     }
     
-
+    
     /*
     // MARK: - Navigation
 

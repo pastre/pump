@@ -11,7 +11,6 @@ import UIKit
 class WarningViewController: UIViewController {
 
     @IBOutlet weak var warningLabel: UILabel!
-    
     @IBOutlet weak var scalarView: UIView!
     
     
@@ -24,15 +23,15 @@ class WarningViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.warningLabel.text = self.message
-        self.scalarView.transform = self.scalarView.transform.scaledBy(x: 0, y: 0)
+//        self.scalarView.transform = self.scalarView.transform.scaledBy(x: 0, y: 0)
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        UIView.animate(withDuration: 0.4) {
-            
-            self.scalarView.transform = .identity
-            
-        }
+//        UIView.animate(withDuration: 0.4) {
+//
+//            self.scalarView.transform = .identity
+//
+//        }
         
     }
     

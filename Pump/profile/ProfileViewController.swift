@@ -15,7 +15,7 @@ import FirebaseAuth
 class ProfileViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SKPaymentTransactionObserver, SKProductsRequestDelegate{
 
     
-    let products = ["Trintad": 30, "Sessentad": 60, "Noventad": 90]
+    let products = ["trintad": 30, "sessentad": 60, "noventad": 90, "Trinta dias de alerta": 30, "30 dias": 30]
     
     @IBOutlet weak var userImageView: UIImageView!
     
@@ -72,18 +72,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         self.navigationItem.rightBarButtonItem = item
     }
     
-    @objc func onLogout(_ action: Any?){
-        self.buyingActivityIndicator.startAnimating()
-        do {
-            try Auth.auth().signOut()
-//            self.navigationController?.popToRootViewController(animated: true)
-            self.view.window!.rootViewController!.dismiss(animated: true, completion: nil)
-            self.buyingActivityIndicator.stopAnimating()
-        } catch let error {
-            print("Error on logout", error)
-            self.buyingActivityIndicator.stopAnimating()
-        }
-    }
+
     
     func setupProductRequest(){
         let request = SKProductsRequest(productIdentifiers: Set<String>(self.products.keys))
@@ -210,6 +199,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             
             self.offers.append(offer)
             self.offersTableView.reloadData()
+        }
+    }
+    @objc func onLogout(_ action: Any?){
+        self.buyingActivityIndicator.startAnimating()
+        do {
+            try Auth.auth().signOut()
+            //            self.navigationController?.popToRootViewController(animated: true)
+            self.view.window!.rootViewController!.dismiss(animated: true, completion: nil)
+            self.buyingActivityIndicator.stopAnimating()
+        } catch let error {
+            print("Error on logout", error)
+            self.buyingActivityIndicator.stopAnimating()
         }
     }
     /*

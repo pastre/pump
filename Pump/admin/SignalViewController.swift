@@ -21,21 +21,6 @@ class SignalViewController: TextFieldViewController,  UITextViewDelegate {
         // Do any additional setup after loading the view.
     }
     
-    override func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        super.moveKeyboardUp()
-        return true
-    }
-    
-    
-    override  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.moveKeyboardDown()
-        return false
-    }
-    
-    override  func textFieldDidEndEditing(_ textField: UITextField) {
-        self.moveKeyboardDown()
-    }
-    
     @IBAction func onSend(_ sender: Any) {
 //        self.messageTextField.text = """
 //        📣COMPRE IMEDIATAMENTE📣

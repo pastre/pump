@@ -16,9 +16,14 @@ class SignUpViewController: TextFieldViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var phoneTextField: UITextField!
+    @IBOutlet weak var dddTextField: UITextField!
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    
+    @IBOutlet weak var cepTextField: UITextField!
+    @IBOutlet weak var enderecoTextField: UITextField!
+    @IBOutlet weak var complementoTextField: UITextField!
     
     @IBOutlet weak var loadingActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var successImage: UIImageView!
@@ -35,6 +40,7 @@ class SignUpViewController: TextFieldViewController {
     override func viewDidLoad() {
         self.content = self.contentView
         self.hidingView = self.logoImageView
+        
         super.viewDidLoad()
         self.successImage.isHidden = true
         
@@ -44,7 +50,10 @@ class SignUpViewController: TextFieldViewController {
         self.emailTextField.delegate = self
         self.passwordTextField.delegate = self
         
-        // Do any additional setup after loading the view.
+        self.cepTextField.delegate  = self
+        self.enderecoTextField.delegate = self
+        self.complementoTextField.delegate = self
+        
     }
     
     func validateField(f1: UITextField, f2: UITextField) -> String? {
@@ -60,10 +69,22 @@ class SignUpViewController: TextFieldViewController {
     
     
     @IBAction func onSignUp(_ sender: Any) {
+        
+        if !self.emailTextField.hasText || !self.passwordTextField.hasText || !self.nameTextField.hasText || !self.phoneTextField.hasText || !self.dddTextField.hasText || !self.cepTextField.hasText || !self.enderecoTextField.hasText || !self.complementoTextField.hasText{
+            self.performSegue(withIdentifier: "invalidForm", sender: "Por favor, preencha corretamente os dados do formulário")
+        }
+        
         guard let email = self.emailTextField.text else { return }
         guard let password = self.passwordTextField.text else { return }
+        
         guard let name = self.nameTextField.text else { return }
         guard let phone = self.phoneTextField.text else { return }
+        guard let ddd = self.dddTextField.text else { return }
+        
+        guard let cep = self.cepTextField.text else { return }
+        guard let endereco = self.enderecoTextField.text else { return }
+        guard  let complemento = self.complementoTextField.text else { return }
+    
         
         self.loadingActivityIndicator.startAnimating()
         Auth.auth().createUser(withEmail: email, password: password) { (r, e) in
@@ -100,7 +121,15 @@ class SignUpViewController: TextFieldViewController {
                     print("Erro ao modificar o nome do viado", error.localizedDescription)
                 }else{
                     let uid = result.user.uid
-                    Database.database().reference().child("users/\(uid)").setValue(["phone": phone, "isAdmin": false, "signalDeadline": Date().timeIntervalSince1970])
+                    Database.database().reference().child("users/\(uid)").setValue([
+                        "ddd": ddd,
+                        "phone": phone,
+                        "isAdmin": false,
+                        "signalDeadline": Date().timeIntervalSince1970,
+                        "cep": cep,
+                        "endereco": endereco,
+                        "complemento": complemento
+                    ])
                     self.loadingActivityIndicator.stopAnimating()
                     self.successImage.isHidden = false
                     Timer.scheduledTimer(withTimeInterval: 2, repeats: false, block: { (_) in

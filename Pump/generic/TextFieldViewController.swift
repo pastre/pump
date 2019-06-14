@@ -67,7 +67,7 @@ class TextFieldViewController: UIViewController, UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         self.moveKeyboardDown()
-        return false
+        return true
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {

@@ -8,9 +8,10 @@
 
 import UIKit
 import FirebaseDatabase
+import FirebaseMessaging
 import FirebaseAuth
 
-class NavigationViewController: UIViewController {
+class NavigationViewController: UIViewController  {
     
     @IBOutlet weak var logoImageView: UIImageView!
     @IBOutlet weak var profileButton: UIButton!
@@ -18,11 +19,14 @@ class NavigationViewController: UIViewController {
     @IBOutlet weak var signalButton: UIButton!
     @IBOutlet weak var signalWarningLabel: UILabel!
     
+    let user = Auth.auth().currentUser!
     var userSignalTimestamp: Date?
     var canReceiveSignals: Bool!
+    var isShowingEmail: Bool!
     
     override func viewDidLoad() {
         self.canReceiveSignals = false
+        self.isShowingEmail = false
         self.signalWarningLabel.alpha = 0
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -31,14 +35,22 @@ class NavigationViewController: UIViewController {
         self.updateSignalState()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.setNavigationBarHidden(false, animated: animated);
+        super.viewWillDisappear(animated)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     func setupUser(){
-        let user = Auth.auth().currentUser!
         Database.database().reference().child("users").child(user.uid).observe(.value) { (data) in
             let asDict = data.value as! NSDictionary
             let timestamp = asDict["signalDeadline"] as! Double
             User.instance.isAdmin = (asDict["isAdmin"] as! Bool)
             self.userSignalTimestamp = Date(timeIntervalSince1970: timestamp)
-            
             self.updateSignalState()
         }
     }
@@ -101,4 +113,55 @@ class NavigationViewController: UIViewController {
         //        self.view.layer.below
     }
     
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        
+        let dataDict:[String: String] = ["token": fcmToken]
+        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
+    }
+    
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print("Recebi a mensagem!!!!!!!!!!!!!!!!!", remoteMessage.appData)
+    }
+    
+    @IBAction func onLogoTapped(_ sender: Any) {
+        if !self.isShowingEmail{
+            self.goToEmail {
+                Timer.scheduledTimer(withTimeInterval: 3, repeats: false, block: { (_) in
+                    if self.isShowingEmail{
+                        self.logoImageView.image = UIImage(named: "logo")
+                        self.isShowingEmail = false
+                    }
+                })
+            }
+        }else{
+            self.logoImageView.image = UIImage(named: "logo")
+            self.isShowingEmail = false
+        }
+    }
+    
+    func goToLogo(){
+        UIView.animate(withDuration: 0.5, animations: {
+            self.logoImageView.transform = self.logoImageView.transform.scaledBy(x: 0.5, y: 0.5)
+            self.logoImageView.image = UIImage(named: "logo")
+            self.logoImageView.transform = .identity
+        }) { (_) in
+            self.isShowingEmail = false
+        }
+        
+    }
+    
+    func goToEmail(animateComplete: @escaping () -> Void){
+        self.isShowingEmail = true
+        UIView.animate(withDuration: 0.5, animations: {
+            self.logoImageView.transform = self.logoImageView.transform.scaledBy(x: 0.5, y: 0.5)
+            self.logoImageView.image = UIImage(named: "email")
+            self.logoImageView.transform = .identity
+        }) { (_) in
+            animateComplete()
+        }
+    }
 }

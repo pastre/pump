@@ -33,8 +33,8 @@ class LoginViewController: TextFieldViewController {
         var email = self.emailtTextField.text!
         var password = self.passwordTextField.text!
         
-//        email = "pastr68@gmail.com"
-//        password = "asdfghjkl"
+        email = "pastre68@gmail.com"
+        password = "asdqwe123"
 //                email = "brunopaster@gmail.com"
 //                password = "Xmicromp45"
         self.loadingActivityIndicator.startAnimating()
@@ -58,7 +58,6 @@ class LoginViewController: TextFieldViewController {
                 self.performSegue(withIdentifier: "loginSegue", sender: sender)
             }
             self.loadingActivityIndicator.stopAnimating()
-            
         }
         
     }
@@ -74,6 +73,4 @@ class LoginViewController: TextFieldViewController {
             dest.message = sender as! String
         }
     }
- 
-
 }
