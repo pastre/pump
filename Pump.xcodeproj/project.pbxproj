@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -34,6 +34,7 @@
 		D770CB4722A375C400870971 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D770CB4622A375C400870971 /* NavigationViewController.swift */; };
 		D779CCEE229F35B900CECDD1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D779CCED229F35B900CECDD1 /* StoreKit.framework */; };
 		D77B5D0722A216F50082A63F /* TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B5D0622A216F50082A63F /* TextFieldViewController.swift */; };
+		D77DFB6423BA9DAB0068507F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77DFB6323BA9DAB0068507F /* TabBarViewController.swift */; };
 		D782754D22962F20009862BF /* AdminMonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782754C22962F20009862BF /* AdminMonthTableViewController.swift */; };
 		D782754F22962FA3009862BF /* AddMonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782754E22962FA3009862BF /* AddMonthTableViewCell.swift */; };
 		D782755122963347009862BF /* FirebaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782755022963347009862BF /* FirebaseTableViewController.swift */; };
@@ -107,6 +108,7 @@
 		D770CB4622A375C400870971 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		D779CCED229F35B900CECDD1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D77B5D0622A216F50082A63F /* TextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewController.swift; sourceTree = "<group>"; };
+		D77DFB6323BA9DAB0068507F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D782754C22962F20009862BF /* AdminMonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMonthTableViewController.swift; sourceTree = "<group>"; };
 		D782754E22962FA3009862BF /* AddMonthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonthTableViewCell.swift; sourceTree = "<group>"; };
 		D782755022963347009862BF /* FirebaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTableViewController.swift; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 		D7EEB93E229AE48800A8286C /* auth */ = {
 			isa = PBXGroup;
 			children = (
+				D77DFB6323BA9DAB0068507F /* TabBarViewController.swift */,
 				D72C032E229FDE1E005C219F /* MainViewController.swift */,
 				D7EEB941229AE4A400A8286C /* SignUpViewController.swift */,
 				D7EEB943229AE4C300A8286C /* LoginViewController.swift */,
@@ -545,24 +548,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Pump/Pods-Pump-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
-				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
-				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
-				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Pump/Pods-Pump-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-Pump/Pods-Pump-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -602,6 +592,7 @@
 				D7F4F01622994C70000589F4 /* DayRef.swift in Sources */,
 				D78275532296340D009862BF /* BaseFirebaseRef.swift in Sources */,
 				D782754D22962F20009862BF /* AdminMonthTableViewController.swift in Sources */,
+				D77DFB6423BA9DAB0068507F /* TabBarViewController.swift in Sources */,
 				D75AF5D72298347E000E7C9B /* FirebaseTableViewCell.swift in Sources */,
 				D79BCE8B229C79240099F5FD /* User.swift in Sources */,
 				D7827558229641FD009862BF /* AddWeekTableViewCell.swift in Sources */,
@@ -809,13 +800,13 @@
 				CODE_SIGN_ENTITLEMENTS = Pump/Pump.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 785AXMUFKH;
+				DEVELOPMENT_TEAM = QM43B7QRF9;
 				INFOPLIST_FILE = Pump/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pumptradesolutions.pump;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pastre.pump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
@@ -831,13 +822,13 @@
 				CODE_SIGN_ENTITLEMENTS = Pump/Pump.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 785AXMUFKH;
+				DEVELOPMENT_TEAM = QM43B7QRF9;
 				INFOPLIST_FILE = Pump/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.pumptradesolutions.pump;
+				PRODUCT_BUNDLE_IDENTIFIER = com.pastre.pump;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;

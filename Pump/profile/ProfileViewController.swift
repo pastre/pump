@@ -33,10 +33,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     
     var offers: [Offer]!
     var validThrough: Date!
-   
-    // MARK: - Setup methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    
+    override func viewDidLoad(){
         
         self.offers = [Offer]()
         
@@ -58,7 +57,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             queue.finishTransaction($0) }
         tr = queue.transactions.count
         print("I have", tr, "transactions on hold")
-
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -201,13 +199,12 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             self.offersTableView.reloadData()
         }
     }
+    
     @objc func onLogout(_ action: Any?){
         self.buyingActivityIndicator.startAnimating()
         do {
             try Auth.auth().signOut()
-            //            self.navigationController?.popToRootViewController(animated: true)
-            self.view.window!.rootViewController!.dismiss(animated: true, completion: nil)
-            self.buyingActivityIndicator.stopAnimating()
+            (self.tabBarController as? TabBarViewController)?.updateVcState()
         } catch let error {
             print("Error on logout", error)
             self.buyingActivityIndicator.stopAnimating()

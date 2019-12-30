@@ -44,6 +44,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         print("Configurei", Messaging.messaging().apnsToken, Messaging.messaging().isDirectChannelEstablished, application.isRegisteredForRemoteNotifications)
         
+        let mainVc =  TabBarViewController()
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = mainVc
+        window?.makeKeyAndVisible()
+
+        mainVc.updateVcState()
+        
         return true
     }
 
