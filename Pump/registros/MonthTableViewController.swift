@@ -27,7 +27,9 @@ class MonthTableViewController: FirebaseTableViewController {
     }
     
     func checkAdmin(){
-        let uid = Auth.auth().currentUser!.uid
+        guard let uid = Auth.auth().currentUser?.uid else {
+            return
+        }
         let ref = Database.database().reference().child("users/\(uid)")
         ref.observeSingleEvent(of: .value, with: {
             (snap) in

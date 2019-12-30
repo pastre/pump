@@ -53,7 +53,8 @@ class LoginViewController: TextFieldViewController {
                 }
             } else {
                 print("Login deu boa1")
-                self.performSegue(withIdentifier: "loginSegue", sender: sender)
+                NotificationCenter.default.post(name: kUPDATE_TABBAR, object: nil)
+                self.dismiss(animated: true, completion: nil)
             }
             self.loadingActivityIndicator.stopAnimating()
         }

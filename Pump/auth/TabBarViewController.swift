@@ -9,14 +9,28 @@
 import UIKit
 import FirebaseAuth
 
+let kUPDATE_TABBAR = Notification.Name("updteTabBar")
+
 class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
 
     var isLogged = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.updateVcState()
         self.tabBarController?.delegate = self
+        self.updateVcState()
+
+        NotificationCenter.default.addObserver(self, selector: #selector(self.onRemoteUpdate), name: kUPDATE_TABBAR, object: nil)
+    }
+    
+    @objc func onRemoteUpdate() {
+        self.updateVcState()
+    }
+    
+    override func tabBar(_ tabBar: UITabBar, willBeginCustomizing items: [UITabBarItem]) {
+        self.updateVcState()
+        
+        super.tabBar(tabBar, willBeginCustomizing: items)
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
@@ -36,25 +50,28 @@ class TabBarViewController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func setDisloged() {
-        if !self.isLogged { return }
+        
         let vcNames = ["main", "registros", "main"]
-        self.updateVcs(names: vcNames)
+        self.updateVcs(ids: vcNames)
         self.isLogged = false
     }
     
     func setLoggedIn() {
         if self.isLogged { return }
         let vcNames = ["perfil", "registros", "sinais"]
-        self.updateVcs(names: vcNames)
+        self.updateVcs(ids: vcNames)
         self.isLogged = true
     }
     
-    func updateVcs(names vcNames: [String]){
-        
+    func updateVcs(ids vcIds: [String]){
+        print("Setting views to ", vcIds)
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        
-        let vcs = vcNames.map { (vcName) -> UIViewController in
-            return storyboard.instantiateViewController(withIdentifier: vcName)
+        let names = ["Perfil", "Registros", "Sinais"]
+        let vcs = vcIds.map { (vcId) -> UIViewController in
+            let vc = storyboard.instantiateViewController(withIdentifier: vcId)
+            let vcName = names[vcIds.firstIndex(of: vcId)!]
+            vc.tabBarItem = UITabBarItem(title: vcName, image: nil, selectedImage: nil)
+            return vc
         }
         
         self.setViewControllers(vcs, animated: false)
