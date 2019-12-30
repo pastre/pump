@@ -26,7 +26,6 @@ class LoginViewController: TextFieldViewController {
         self.emailtTextField.delegate = self
         self.passwordTextField.delegate = self
 
-        // Do any additional setup after loading the view.
     }
     
     @IBAction func onLogin(_ sender: Any) {
@@ -35,8 +34,7 @@ class LoginViewController: TextFieldViewController {
         
         email = "pastre68@gmail.com"
         password = "asdqwe123"
-//                email = "brunopaster@gmail.com"
-//                password = "Xmicromp45"
+        
         self.loadingActivityIndicator.startAnimating()
         Auth.auth().signIn(withEmail: email, password: password) { (r, error) in
             
@@ -62,10 +60,6 @@ class LoginViewController: TextFieldViewController {
         
     }
     
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if segue.identifier == "failedSegue"{

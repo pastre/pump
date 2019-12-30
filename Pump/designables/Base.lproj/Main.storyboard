@@ -590,39 +590,10 @@
             </objects>
             <point key="canvasLocation" x="-810" y="820"/>
         </scene>
-        <!--Root View Controller-->
-        <scene sceneID="F5k-6U-She">
-            <objects>
-                <tableViewController id="Urp-hz-avX" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="r6D-Xh-0Gq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="bGF-Jj-YzU">
-                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="bGF-Jj-YzU" id="mBF-dn-yZz">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Urp-hz-avX" id="Gdg-kF-2zL"/>
-                            <outlet property="delegate" destination="Urp-hz-avX" id="1h3-9d-Llp"/>
-                        </connections>
-                    </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="t1T-0j-uYk"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tFa-PG-UQ3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2250" y="1649"/>
-        </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar View Controller-->
         <scene sceneID="DhK-Bd-dku">
             <objects>
-                <tabBarController id="yTS-Pm-mGI" sceneMemberID="viewController">
+                <tabBarController id="yTS-Pm-mGI" customClass="TabBarViewController" customModule="Pump" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="omx-Ox-ooj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -641,7 +612,7 @@
         <!--Perfil-->
         <scene sceneID="b8V-o6-EgH">
             <objects>
-                <navigationController id="2hB-dC-hv9" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="perfil" useStoryboardIdentifierAsRestorationIdentifier="YES" id="2hB-dC-hv9" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Perfil" id="IXz-v2-TGL"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vTp-M1-D4w">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -658,7 +629,7 @@
         <!--Sinais-->
         <scene sceneID="IFj-pa-lVt">
             <objects>
-                <navigationController id="hcs-lh-5NJ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="sinais" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hcs-lh-5NJ" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Sinais" id="EpL-yB-BsS"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="M2Y-1x-VLa">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -675,7 +646,7 @@
         <!--Registros-->
         <scene sceneID="bbm-Sq-Pd8">
             <objects>
-                <navigationController id="Kbx-hL-iF7" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="registros" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Kbx-hL-iF7" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Registros" id="m7I-el-J7f"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="09f-yE-MT5">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -688,22 +659,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zpq-Jf-cMe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1578" y="3287"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="ojb-XW-Jk3">
-            <objects>
-                <navigationController id="zEh-Vw-hcd" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Syx-XA-goA">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="Urp-hz-avX" kind="relationship" relationship="rootViewController" id="Jqq-cH-b6X"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Tdv-rc-h9v" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-3169" y="1649"/>
         </scene>
         <!--Criar conta-->
         <scene sceneID="UZI-Ye-FBV">
@@ -1271,7 +1226,7 @@
         <!--Main View Controller-->
         <scene sceneID="WrR-rj-qPj">
             <objects>
-                <viewController id="rAB-Lq-Ksh" customClass="MainViewController" customModule="Pump" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rAB-Lq-Ksh" customClass="MainViewController" customModule="Pump" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gos-v2-Xdx">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

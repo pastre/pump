@@ -35,8 +35,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     var validThrough: Date!
    
     // MARK: - Setup methods
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    
+    
+    override func viewDidLoad(){
         
         self.offers = [Offer]()
         
@@ -58,7 +59,6 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
             queue.finishTransaction($0) }
         tr = queue.transactions.count
         print("I have", tr, "transactions on hold")
-
     }
 
     override func viewWillDisappear(_ animated: Bool) {

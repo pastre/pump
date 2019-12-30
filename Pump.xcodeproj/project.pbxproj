@@ -34,6 +34,9 @@
 		D770CB4722A375C400870971 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D770CB4622A375C400870971 /* NavigationViewController.swift */; };
 		D779CCEE229F35B900CECDD1 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D779CCED229F35B900CECDD1 /* StoreKit.framework */; };
 		D77B5D0722A216F50082A63F /* TextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77B5D0622A216F50082A63F /* TextFieldViewController.swift */; };
+		D77DFB6023BA9A150068507F /* RequiredLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77DFB5F23BA9A150068507F /* RequiredLoginViewController.swift */; };
+		D77DFB6223BA9B5B0068507F /* RequiredLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77DFB6123BA9B5B0068507F /* RequiredLoginView.swift */; };
+		D77DFB6423BA9DAB0068507F /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D77DFB6323BA9DAB0068507F /* TabBarViewController.swift */; };
 		D782754D22962F20009862BF /* AdminMonthTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782754C22962F20009862BF /* AdminMonthTableViewController.swift */; };
 		D782754F22962FA3009862BF /* AddMonthTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782754E22962FA3009862BF /* AddMonthTableViewCell.swift */; };
 		D782755122963347009862BF /* FirebaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D782755022963347009862BF /* FirebaseTableViewController.swift */; };
@@ -107,6 +110,9 @@
 		D770CB4622A375C400870971 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		D779CCED229F35B900CECDD1 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		D77B5D0622A216F50082A63F /* TextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldViewController.swift; sourceTree = "<group>"; };
+		D77DFB5F23BA9A150068507F /* RequiredLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredLoginViewController.swift; sourceTree = "<group>"; };
+		D77DFB6123BA9B5B0068507F /* RequiredLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequiredLoginView.swift; sourceTree = "<group>"; };
+		D77DFB6323BA9DAB0068507F /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		D782754C22962F20009862BF /* AdminMonthTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMonthTableViewController.swift; sourceTree = "<group>"; };
 		D782754E22962FA3009862BF /* AddMonthTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMonthTableViewCell.swift; sourceTree = "<group>"; };
 		D782755022963347009862BF /* FirebaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseTableViewController.swift; sourceTree = "<group>"; };
@@ -319,6 +325,9 @@
 				D7EEB941229AE4A400A8286C /* SignUpViewController.swift */,
 				D7EEB943229AE4C300A8286C /* LoginViewController.swift */,
 				D79FED4622A1898700D553C9 /* WarningViewController.swift */,
+				D77DFB5F23BA9A150068507F /* RequiredLoginViewController.swift */,
+				D77DFB6123BA9B5B0068507F /* RequiredLoginView.swift */,
+				D77DFB6323BA9DAB0068507F /* TabBarViewController.swift */,
 			);
 			path = auth;
 			sourceTree = "<group>";
@@ -589,6 +598,7 @@
 				D7F4F01622994C70000589F4 /* DayRef.swift in Sources */,
 				D78275532296340D009862BF /* BaseFirebaseRef.swift in Sources */,
 				D782754D22962F20009862BF /* AdminMonthTableViewController.swift in Sources */,
+				D77DFB6423BA9DAB0068507F /* TabBarViewController.swift in Sources */,
 				D75AF5D72298347E000E7C9B /* FirebaseTableViewCell.swift in Sources */,
 				D79BCE8B229C79240099F5FD /* User.swift in Sources */,
 				D7827558229641FD009862BF /* AddWeekTableViewCell.swift in Sources */,
@@ -597,6 +607,7 @@
 				D705046A22943E3C0099BE02 /* Signal.swift in Sources */,
 				D75AF5E622984115000E7C9B /* DayTableViewCell.swift in Sources */,
 				D79BCE8F229CD7310099F5FD /* ProfileViewController.swift in Sources */,
+				D77DFB6223BA9B5B0068507F /* RequiredLoginView.swift in Sources */,
 				D7EC6C3322949F6600C597C2 /* ChatBox.swift in Sources */,
 				D7050434229385E20099BE02 /* AppDelegate.swift in Sources */,
 				D782754F22962FA3009862BF /* AddMonthTableViewCell.swift in Sources */,
@@ -616,6 +627,7 @@
 				D705046C229449E90099BE02 /* Constants.swift in Sources */,
 				D79FED4722A1898700D553C9 /* WarningViewController.swift in Sources */,
 				D71021BA229DE32400AEFB30 /* Offer.swift in Sources */,
+				D77DFB6023BA9A150068507F /* RequiredLoginViewController.swift in Sources */,
 				D75AF5DB229836C7000E7C9B /* MonthTableViewController.swift in Sources */,
 				D7050471229472580099BE02 /* SignalTableViewController.swift in Sources */,
 			);
